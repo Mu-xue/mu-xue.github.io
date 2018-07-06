@@ -79,16 +79,20 @@
 
 
 
-<meta name="description" content="被卷进漩涡 也不低头">
-<meta property="og:type" content="website">
-<meta property="og:title" content="慕雪">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="提到JavaScript，大家都知道它是单线程的，那么在执行异步请求的时候，它内部的事件处理机制是怎样的呢？这里就来谈谈事件循环 —— Event loop. 浏览器端的事件循环先来看这段经典的代码123456789101112131415setTimeout(function() &amp;#123;  console.log(1)&amp;#125;, 0);new Promise(function exec">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Event Loop（事件循环）">
+<meta property="og:url" content="http://yoursite.com/2018/07/06/front/event_loop_1/index.html">
 <meta property="og:site_name" content="慕雪">
-<meta property="og:description" content="被卷进漩涡 也不低头">
+<meta property="og:description" content="提到JavaScript，大家都知道它是单线程的，那么在执行异步请求的时候，它内部的事件处理机制是怎样的呢？这里就来谈谈事件循环 —— Event loop. 浏览器端的事件循环先来看这段经典的代码123456789101112131415setTimeout(function() &amp;#123;  console.log(1)&amp;#125;, 0);new Promise(function exec">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13036978-b3368a1245a20cbd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13036978-d49ef88b55bc9af3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-07-06T07:58:47.395Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="慕雪">
-<meta name="twitter:description" content="被卷进漩涡 也不低头">
+<meta name="twitter:title" content="Event Loop（事件循环）">
+<meta name="twitter:description" content="提到JavaScript，大家都知道它是单线程的，那么在执行异步请求的时候，它内部的事件处理机制是怎样的呢？这里就来谈谈事件循环 —— Event loop. 浏览器端的事件循环先来看这段经典的代码123456789101112131415setTimeout(function() &amp;#123;  console.log(1)&amp;#125;, 0);new Promise(function exec">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/13036978-b3368a1245a20cbd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -118,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/06/front/event_loop_1/"/>
 
 
 
 
 
-  <title>慕雪</title>
+  <title>Event Loop（事件循环） | 慕雪</title>
   
 
 
@@ -143,8 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -227,9 +230,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -259,9 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/06/front/event_loop_1/" itemprop="url">Event Loop（事件循环）</a></h1>
+          <h1 class="post-title" itemprop="name headline">Event Loop（事件循环）</h1>
         
 
         <div class="post-meta">
@@ -333,9 +334,7 @@
       
 
       
-        
-          
-            <p>提到JavaScript，大家都知道它是单线程的，那么在执行异步请求的时候，它内部的事件处理机制是怎样的呢？这里就来谈谈事件循环 —— Event loop.</p>
+        <p>提到JavaScript，大家都知道它是单线程的，那么在执行异步请求的时候，它内部的事件处理机制是怎样的呢？这里就来谈谈事件循环 —— Event loop.</p>
 <h1 id="浏览器端的事件循环"><a href="#浏览器端的事件循环" class="headerlink" title="浏览器端的事件循环"></a>浏览器端的事件循环</h1><p>先来看这段经典的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function() &#123;</span><br><span class="line">  console.log(1)</span><br><span class="line">&#125;, 0);</span><br><span class="line"></span><br><span class="line">new Promise(function executor(resolve) &#123;</span><br><span class="line">  console.log(2);</span><br><span class="line">  for( var i=0 ; i&lt;10000 ; i++ ) &#123;</span><br><span class="line">    i == 9999 &amp;&amp; resolve();</span><br><span class="line">  &#125;</span><br><span class="line">  console.log(3);</span><br><span class="line">&#125;).then(function() &#123;</span><br><span class="line">  console.log(4);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">console.log(5);</span><br></pre></td></tr></table></figure></p>
 <p>输出结果：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">3</span><br><span class="line">5</span><br><span class="line">4</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
@@ -389,8 +388,6 @@
 </ul>
 <p>process.nextTick() 会在各个事件阶段之间执行，一旦执行，要直到nextTick队列被清空，才会进入到下一个事件阶段，所以如果递归调用 process.nextTick()，会导致出现I/O starving（饥饿）的问题。官方推荐用户使用setImmediate() </p>
 
-          
-        
       
     </div>
     
@@ -407,158 +404,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/06/tools/compress/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sherley">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="慕雪">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/06/tools/compress/" itemprop="url">在线图片压缩</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-06T12:35:45+08:00">
-                2018-07-06
-              </time>
+              <a href="/2018/07/06/tools/compress/" rel="next" title="在线图片压缩">
+                <i class="fa fa-chevron-left"></i> 在线图片压缩
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Dev-Tool/" itemprop="url" rel="index">
-                    <span itemprop="name">Dev-Tool</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>前端必备<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/06/tools/compress/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -568,156 +435,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/06/tools/translater/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sherley">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="慕雪">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/06/tools/translater/" itemprop="url">变量命名翻译</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-06T11:37:09+08:00">
-                2018-07-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Dev-Tool/" itemprop="url" rel="index">
-                    <span itemprop="name">Dev-Tool</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>作为一只国产程序员，你是否经常为变量命名苦恼？<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/06/tools/translater/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -725,6 +447,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -745,8 +471,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -797,6 +532,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#浏览器端的事件循环"><span class="nav-number">1.</span> <span class="nav-text">浏览器端的事件循环</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Node-js中的事件循环"><span class="nav-number">2.</span> <span class="nav-text">Node.js中的事件循环</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Phases-Overview"><span class="nav-number">2.1.</span> <span class="nav-text">Phases Overview</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -930,6 +681,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
