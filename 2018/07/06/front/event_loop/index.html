@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="提到JavaScript，大家都知道它是单线程的，那么在执行异步请求的时候，它内部的事件处理机制是怎样的呢？这里就来谈谈事件循环 —— Event loop. 浏览器端的事件循环先来看这段经典的代码123456789101112131415setTimeout(function() &amp;#123;  console.log(1)&amp;#125;, 0);new Promise(function exec">
+<meta name="description" content="提到JavaScript，大家都知道它是单线程的，那么在执行异步请求的时候，它内部的事件处理机制是怎样的呢？这里就来谈谈事件循环 —— Event loop.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Event Loop（事件循环）">
 <meta property="og:url" content="http://yoursite.com/2018/07/06/front/event_loop/index.html">
 <meta property="og:site_name" content="慕雪">
-<meta property="og:description" content="提到JavaScript，大家都知道它是单线程的，那么在执行异步请求的时候，它内部的事件处理机制是怎样的呢？这里就来谈谈事件循环 —— Event loop. 浏览器端的事件循环先来看这段经典的代码123456789101112131415setTimeout(function() &amp;#123;  console.log(1)&amp;#125;, 0);new Promise(function exec">
+<meta property="og:description" content="提到JavaScript，大家都知道它是单线程的，那么在执行异步请求的时候，它内部的事件处理机制是怎样的呢？这里就来谈谈事件循环 —— Event loop.">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13036978-b3368a1245a20cbd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13036978-d49ef88b55bc9af3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-07-06T08:17:09.634Z">
+<meta property="og:updated_time" content="2018-07-06T08:17:36.722Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Event Loop（事件循环）">
-<meta name="twitter:description" content="提到JavaScript，大家都知道它是单线程的，那么在执行异步请求的时候，它内部的事件处理机制是怎样的呢？这里就来谈谈事件循环 —— Event loop. 浏览器端的事件循环先来看这段经典的代码123456789101112131415setTimeout(function() &amp;#123;  console.log(1)&amp;#125;, 0);new Promise(function exec">
+<meta name="twitter:description" content="提到JavaScript，大家都知道它是单线程的，那么在执行异步请求的时候，它内部的事件处理机制是怎样的呢？这里就来谈谈事件循环 —— Event loop.">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/13036978-b3368a1245a20cbd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -334,7 +334,7 @@
       
 
       
-        <p>提到JavaScript，大家都知道它是单线程的，那么在执行异步请求的时候，它内部的事件处理机制是怎样的呢？这里就来谈谈事件循环 —— Event loop.</p>
+        <p>提到JavaScript，大家都知道它是单线程的，那么在执行异步请求的时候，它内部的事件处理机制是怎样的呢？这里就来谈谈事件循环 —— Event loop.<br><a id="more"></a></p>
 <h1 id="浏览器端的事件循环"><a href="#浏览器端的事件循环" class="headerlink" title="浏览器端的事件循环"></a>浏览器端的事件循环</h1><p>先来看这段经典的代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">  console.log(1)</span><br><span class="line">&#125;, 0);</span><br><span class="line"></span><br><span class="line">new Promise(<span class="keyword">function</span> executor(resolve) &#123;</span><br><span class="line">  console.log(2);</span><br><span class="line">  <span class="keyword">for</span>( var i=0 ; i&lt;10000 ; i++ ) &#123;</span><br><span class="line">    i == 9999 &amp;&amp; resolve();</span><br><span class="line">  &#125;</span><br><span class="line">  console.log(3);</span><br><span class="line">&#125;).<span class="keyword">then</span>(<span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">  console.log(4);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">console.log(5);</span><br></pre></td></tr></table></figure></p>
 <p>输出结果：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">3</span><br><span class="line">5</span><br><span class="line">4</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
