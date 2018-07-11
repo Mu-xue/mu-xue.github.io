@@ -79,17 +79,19 @@
 
 
 
-<meta name="description" content="#hi">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tool">
-<meta property="og:url" content="http://yoursite.com/tool/index.html">
+<meta name="description" content="仿运动猿公众号的一个场馆预定移动端网站">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue + Vue Loader + Mint-ui 搭建的场馆预定系统Demo">
+<meta property="og:url" content="http://yoursite.com/2018/07/07/demo/sport_vue/index.html">
 <meta property="og:site_name" content="慕雪">
-<meta property="og:description" content="#hi">
+<meta property="og:description" content="仿运动猿公众号的一个场馆预定移动端网站">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-06T03:13:07.626Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13075859-6c1536bc14c3ec7a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-07-11T13:20:26.861Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tool">
-<meta name="twitter:description" content="#hi">
+<meta name="twitter:title" content="Vue + Vue Loader + Mint-ui 搭建的场馆预定系统Demo">
+<meta name="twitter:description" content="仿运动猿公众号的一个场馆预定移动端网站">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/13075859-6c1536bc14c3ec7a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -119,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tool/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/07/demo/sport_vue/"/>
 
 
 
 
 
-  <title>tool | 慕雪</title>
+  <title>Vue + Vue Loader + Mint-ui 搭建的场馆预定系统Demo | 慕雪</title>
   
 
 
@@ -230,34 +232,172 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/07/demo/sport_vue/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sherley">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="慕雪">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">tool</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <p>#hi</p>
-
+          <h1 class="post-title" itemprop="name headline">Vue + Vue Loader + Mint-ui 搭建的场馆预定系统Demo</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-07T15:34:14+08:00">
+                2018-07-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/个人作品/" itemprop="url" rel="index">
+                    <span itemprop="name">个人作品</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>仿运动猿公众号的一个场馆预定移动端网站<br><a id="more"></a><br>刚好前段时间学了Vue，有了React的基础感觉这个框架上手起来真的比较简单，于是趁着学校一门课也得做个小项目，正好就来弄这么个东西吧~</p>
+<p>搭建步骤：</p>
+<ol>
+<li>利用vue-cli新建项目</li>
+<li>配置好 <a href="http://mint-ui.github.io/" target="_blank" rel="noopener">mint-ui</a> </li>
+<li>设计好组件架构。这一步对于一个项目来说是很重要的，关系到后面开发时代码耦合性及可重用性。以这个项目的首页为例：</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/13075859-6c1536bc14c3ec7a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>我简单地将它分为四个部分：头部的Nav组件，中部的Sport组件，底部的GymList组件，由于GymItem复用性很高，我把GymList再拆分成Tab和GymItem，这样开发上结构也比较清晰，容易维护。</p>
+<ol start="4">
+<li>接下来就是愉快的开发时间了~</li>
+</ol>
+<p>__网站传送门：<a href="http://111.230.146.17/xcySport/#/" target="_blank" rel="noopener">http://111.230.146.17/xcySport/#/</a>_</p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/06/front/event_loop/" rel="next" title="Event Loop（事件循环）">
+                <i class="fa fa-chevron-left"></i> Event Loop（事件循环）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -306,7 +446,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -317,7 +457,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
