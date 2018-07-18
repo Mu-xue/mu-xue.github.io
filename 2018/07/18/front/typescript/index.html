@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="慕雪">
 <meta property="og:description" content="TypeScript 是一种由微软开发的自由和开源的编程语言，它是JavaScript的一个超集，扩展了JavaScript的语法。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-18T09:44:09.333Z">
+<meta property="og:updated_time" content="2018-07-18T11:31:12.682Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TypeScript 入门">
 <meta name="twitter:description" content="TypeScript 是一种由微软开发的自由和开源的编程语言，它是JavaScript的一个超集，扩展了JavaScript的语法。">
@@ -344,7 +344,7 @@
 <p>注意我们定义了一个类型<code>Props</code>，它指定了我们组件要用到的属性。 name是必需的且为string类型，同时enthusiasmLevel是可选的且为number类型（你可以通过名字后面加?为指定可选参数）。</p>
 <p>我们创建了一个无状态的函数式组件（Stateless Functional Components，SFC）Hello。 具体来讲，Hello是一个函数，接收一个Props对象并拆解它。 如果Props对象里没有设置enthusiasmLevel，默认值为1。</p>
 <p>也可以用类的方式定义该组件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Hello extends React.Component&lt;Props, object&gt; &#123;</span><br><span class="line">  <span class="function"><span class="title">render</span></span>() &#123;</span><br><span class="line">    const &#123; name, enthusiasmLevel = 1 &#125; = this.props;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (enthusiasmLevel &lt;= 0) &#123;</span><br><span class="line">      throw new Error(<span class="string">'You could be a little more enthusiastic. :D'</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> (</span><br><span class="line">      &lt;div className=<span class="string">"hello"</span>&gt;</span><br><span class="line">        &lt;div className=<span class="string">"greeting"</span>&gt;</span><br><span class="line">          Hello &#123;name + enthusiasmLevel&#125;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>当我们的组件具有某些状态)的时候，使用类的方式是很有用处的。 但在这个例子里我们不需要考虑状态 - 事实上，在<code>React.Component&lt;Props, object&gt;</code>我们把状态指定为了<code>object</code>，因此使用SFC更简洁。</p>
+<p>当我们的组件具有某些state的时候，使用类的方式是很有用处的。 但在这个例子里我们不需要考虑state。事实上，在<code>React.Component&lt;Props, object&gt;</code>我们把state指定为了<code>object</code>，因此使用SFC更简洁。</p>
 <p>调用该组件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Hello name=<span class="string">"TypeScript"</span> enthusiasmLevel=&#123;10&#125; /&gt;</span><br></pre></td></tr></table></figure></p>
 
       
