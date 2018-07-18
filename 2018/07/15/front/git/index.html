@@ -79,19 +79,20 @@
 
 
 
-<meta name="description" content="仿运动猿公众号的一个场馆预定移动端网站">
+<meta name="description" content="Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue + Vue Router + Mint-ui 搭建的场馆预定系统Demo">
-<meta property="og:url" content="http://yoursite.com/2018/07/07/demo/sport_vue/index.html">
+<meta property="og:title" content="Git 使用">
+<meta property="og:url" content="http://yoursite.com/2018/07/15/front/git/index.html">
 <meta property="og:site_name" content="慕雪">
-<meta property="og:description" content="仿运动猿公众号的一个场馆预定移动端网站">
+<meta property="og:description" content="Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13075859-6c1536bc14c3ec7a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-07-16T04:07:37.990Z">
+<meta property="og:image" content="http://www.runoob.com/wp-content/uploads/2015/02/1352126739_7909.jpg">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/805129/201608/805129-20160814141501031-263930921.png">
+<meta property="og:updated_time" content="2018-07-16T04:26:27.526Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue + Vue Router + Mint-ui 搭建的场馆预定系统Demo">
-<meta name="twitter:description" content="仿运动猿公众号的一个场馆预定移动端网站">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/13075859-6c1536bc14c3ec7a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="Git 使用">
+<meta name="twitter:description" content="Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。">
+<meta name="twitter:image" content="http://www.runoob.com/wp-content/uploads/2015/02/1352126739_7909.jpg">
 
 
 
@@ -121,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/07/demo/sport_vue/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/15/front/git/"/>
 
 
 
 
 
-  <title>Vue + Vue Router + Mint-ui 搭建的场馆预定系统Demo | 慕雪</title>
+  <title>Git 使用 | 慕雪</title>
   
 
 
@@ -244,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/07/demo/sport_vue/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/15/front/git/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sherley">
@@ -261,7 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Vue + Vue Router + Mint-ui 搭建的场馆预定系统Demo</h1>
+          <h1 class="post-title" itemprop="name headline">Git 使用</h1>
         
 
         <div class="post-meta">
@@ -273,8 +274,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-07T15:34:14+08:00">
-                2018-07-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-15T15:34:14+08:00">
+                2018-07-15
               </time>
             
 
@@ -296,8 +297,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/个人作品/" itemprop="url" rel="index">
-                    <span itemprop="name">个人作品</span>
+                  <a href="/categories/前端杂记/" itemprop="url" rel="index">
+                    <span itemprop="name">前端杂记</span>
                   </a>
                 </span>
 
@@ -333,19 +334,35 @@
       
 
       
-        <p>仿运动猿公众号的一个场馆预定移动端网站<br><a id="more"></a><br>刚好前段时间学了Vue，有了React的基础感觉这个框架上手起来真的比较简单，于是趁着学校一门课也得做个小项目，正好就来弄这么个东西吧~</p>
-<p>搭建步骤：</p>
+        <p>Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。<br><a id="more"></a></p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>我们先来理解下Git 工作区、暂存区和版本库概念</p>
+<ul>
+<li>工作区：就是你在电脑里能看到的目录。</li>
+<li>暂存区：英文叫stage, 或index。一般存放在 “.git目录下” 下的index文件（.git/index）中，所以我们把暂存区有时也叫作索引（index）。</li>
+<li>版本库：工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。<br><img src="http://www.runoob.com/wp-content/uploads/2015/02/1352126739_7909.jpg" alt=""></li>
+</ul>
+<p>基本操作：</p>
 <ol>
-<li>利用vue-cli新建项目</li>
-<li>配置好 <a href="http://mint-ui.github.io/" target="_blank" rel="noopener">mint-ui</a> </li>
-<li>设计好组件架构。这一步对于一个项目来说是很重要的，关系到后面开发时代码耦合性及可重用性。以这个项目的首页为例：</li>
+<li><code>git init</code> 创建新的git 仓库</li>
+<li><code>git clone</code> 使用 git clone 拷贝一个 Git 仓库到本地</li>
+<li><code>git add</code> 添加改动到暂存区</li>
+<li><code>git status</code> 查看本地状态</li>
+<li><code>git commit</code> 提交改动到本地仓库</li>
+<li><code>git log</code> 查看记录</li>
+<li><code>git push</code> 推送至远程仓库</li>
+<li><code>git fetch</code> 获取远程代码</li>
+<li><code>git pull</code> 获取并合并远程代码</li>
 </ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/13075859-6c1536bc14c3ec7a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>我简单地将它分为四个部分：头部的Nav组件，中部的Sport组件，底部的GymList组件，由于GymItem复用性很高，我把GymList再拆分成Tab和GymItem，这样开发上结构也比较清晰，容易维护。</p>
-<ol start="4">
-<li>接下来就是愉快的开发时间了~</li>
-</ol>
-<p><strong>网站传送门：<a href="http://111.230.146.17/xcySport/#/" target="_blank" rel="noopener">http://111.230.146.17/xcySport/#/</a></strong></p>
+<p>tips：</p>
+<ul>
+<li>.gitignore 会忽略定义在其中的文件（夹）</li>
+<li>使用git config –global 设置账户和邮箱</li>
+</ul>
+<h2 id="git-flow-工作流"><a href="#git-flow-工作流" class="headerlink" title="git flow 工作流"></a>git flow 工作流</h2><p>Gitflow工作流程围绕项目发布定义了严格的分支模型。Gitflow流程并没有增加任何新的概念或命令。其特色在于，它为不同的分支分配了非常明确的角色，并且定义了使用场景和用法。<br><img src="https://images2015.cnblogs.com/blog/805129/201608/805129-20160814141501031-263930921.png" alt=""><br>主要分支：<br><strong>1. master分支</strong><br>主分支，产品的功能全部实现后，最终在master分支对外发布。</p>
+<p><strong>2. develop分支</strong><br>开发分支，基于master分支克隆，产品的编码工作在此分支进行。</p>
+<p><strong>3. release分支</strong><br>测试分支，基于delevop分支克隆，产品编码工作完成后，发布到本分支测试，测试过程中发现的小bug直接在本分支进行修复，修复完成后合并到develop分支。本分支属于临时分支，目的实现后可删除分支。</p>
+<p><strong>4. bugfix分支</strong><br>Bug修复分支，基于master分支或发布的里程碑Tag克隆，主要用于修复对外发布的分支，收到客户的Bug反馈后，在此分支进行修复，修复完毕后分别合并到develop分支和master分支。本分支属于临时分支，目的实现后可删除分支。</p>
+<p><strong>5. feature分支</strong><br>功能特征分支，基于develop分支克隆，主要用于多人协助开发场景或探索性功能验证场景，功能开发完毕后合并到develop分支。feature分支可创建多个，属于临时分支，目的实现后可删除分支</p>
 
       
     </div>
@@ -370,8 +387,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/06/front/event_loop/" rel="next" title="Event Loop（事件循环）">
-                <i class="fa fa-chevron-left"></i> Event Loop（事件循环）
+              <a href="/2018/07/14/js/promise/" rel="next" title="深入Promise">
+                <i class="fa fa-chevron-left"></i> 深入Promise
               </a>
             
           </div>
@@ -380,8 +397,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/14/js/promise/" rel="prev" title="深入Promise">
-                深入Promise <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/18/front/typescript/" rel="prev" title="TypeScript 入门">
+                TypeScript 入门 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -434,8 +451,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -486,6 +512,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-flow-工作流"><span class="nav-number">2.</span> <span class="nav-text">git flow 工作流</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
