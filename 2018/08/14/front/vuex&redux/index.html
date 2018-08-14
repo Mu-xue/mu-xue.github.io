@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="两大状态管理框架的对比">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vuex vs Redux">
+<meta property="og:url" content="http://yoursite.com/2018/08/14/front/vuex&redux/index.html">
+<meta property="og:site_name" content="慕雪">
+<meta property="og:description" content="两大状态管理框架的对比">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://vuex.vuejs.org/vuex.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13075859-eaf113fc17a25dd1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-08-14T11:38:38.488Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vuex vs Redux">
+<meta name="twitter:description" content="两大状态管理框架的对比">
+<meta name="twitter:image" content="https://vuex.vuejs.org/vuex.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/14/front/vuex&redux/"/>
+
+
+
+
+
+  <title>Vuex vs Redux | 慕雪</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">慕雪</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">慕雪的前端博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/14/front/vuex&redux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sherley">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="慕雪">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Vuex vs Redux</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-14T19:34:14+08:00">
+                2018-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端杂记/" itemprop="url" rel="index">
+                    <span itemprop="name">前端杂记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>两大状态管理框架的对比<br><a id="more"></a></p>
+<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><blockquote>
+<p>随着 JavaScript 单页应用开发日趋复杂，<strong>JavaScript 需要管理比任何时候都要多的 state （状态）</strong>。 这些 state 可能包括服务器响应、缓存数据、本地生成尚未持久化到服务器的数据，也包括 UI 状态，如激活的路由，被选中的标签，是否显示加载动效或者分页器等等。<br>管理不断变化的 state 非常困难。如果一个 model 的变化会引起另一个 model 变化，那么当 view 变化时，就可能引起对应 model 以及另一个 model 的变化，依次地，可能会引起另一个 view 的变化。直至你搞不清楚到底发生了什么。<strong>state 在什么时候，由于什么原因，如何变化已然不受控制。</strong> 当系统变得错综复杂的时候，想重现问题或者添加新功能就会变得举步维艰。</p>
+</blockquote>
+<p>构建大型SPA时，复杂的状态通常会使开发者比较头疼，而Flux就是一种前端状态管理架构思想，专门解决软件的结构问题。贯穿Flux的一个核心概念是单向数据流(undirectional data flow)。<br>基于Flux的设计思想，出现了一批前端状态管理框架。他们给出了一些库用于实现Flux的思想，并在Flux的基础上做了一些改进。<br>在这些框架里，当前最热门的莫过于<code>Redux</code>和<code>Vuex</code>了。</p>
+<h1 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>先看一下官网里vuex的数据流向图：<br><img src="https://vuex.vuejs.org/vuex.png" alt="vuex"><br>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。<br>从图中就可以看出Vuex由几个核心概念组成：</p>
+<ul>
+<li>State<br>Vuex 使用<strong>单一状态树</strong>——是的，用一个对象就包含了全部的应用层级状态。至此它便作为一个“唯一数据源 (<a href="https://en.wikipedia.org/wiki/Single_source_of_truth" target="_blank" rel="noopener">SSOT</a>)”而存在。这也意味着，每个应用将仅仅包含一个 store 实例。单一状态树让我们能够直接地定位任一特定的状态片段，在调试的过程中也能轻易地取得整个当前应用状态的快照。<br><strong>组件仍然保有局部状态</strong><br>使用 Vuex 并不意味着你需要将所有的状态放入 Vuex。虽然将所有的状态放到 Vuex 会使状态变化更显式和易调试，但也会使代码变得冗长和不直观。如果有些状态严格属于单个组件，最好还是作为组件的局部状态。你应该根据你的应用开发需要进行权衡和确定。</li>
+<li>Getter<br>有时候我们需要从 store 中的 state 中派生出一些状态，Vuex 允许我们在 store 中定义“getter”（可以认为是 store 的计算属性）。就像计算属性一样，getter 的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算。</li>
+<li>Mutations<br>更改 Vuex 的 store 中的状态的唯一方法是提交 mutation。Vuex 中的 mutation 非常类似于事件：每个 mutation 都有一个字符串的 <code>事件类型 (type)</code> 和 一个<code>回调函数 (handler)</code>。这个回调函数就是我们实际进行状态更改的地方，并且它会接受 state 作为第一个参数<br><strong>Mutation 必须是同步函数</strong></li>
+<li>Action<br>Action 类似于 mutation，不同在于：<br>Action 提交的是 mutation，而不是直接变更状态。<br>Action 可以包含任意异步操作。</li>
+<li>Module<br>由于使用单一状态树，应用的所有状态会集中到一个比较大的对象。当应用变得非常复杂时，store 对象就有可能变得相当臃肿。为了解决以上问题，Vuex 允许我们将 store 分割成模块（module）。每个模块拥有自己的 state、mutation、action、getter、甚至是嵌套子模块——从上至下进行同样方式的分割</li>
+</ul>
+<h2 id="一个简单的例子"><a href="#一个简单的例子" class="headerlink" title="一个简单的例子"></a>一个简单的例子</h2><p>state<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// initial state</span><br><span class="line">const state = &#123;</span><br><span class="line">  options: &#123;</span><br><span class="line">    title: <span class="string">'标题'</span>,</span><br><span class="line">    content: <span class="string">'内容'</span>,</span><br><span class="line">    show: <span class="literal">false</span></span><br><span class="line">  &#125;,</span><br><span class="line">  list: [],</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>getters<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const getters = &#123;</span><br><span class="line">  list_length (state) &#123;</span><br><span class="line">    <span class="built_in">return</span> state.list.length;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>actions<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const actions = &#123;</span><br><span class="line">  // 同步action</span><br><span class="line">  popUp (&#123;commit&#125;, data) &#123;</span><br><span class="line">    commit(types.SHOW_POPUP, data);</span><br><span class="line">  &#125;,</span><br><span class="line">  // 异步action</span><br><span class="line">  async getList (&#123;commit&#125;, params) &#123;</span><br><span class="line">    const [err, rsp] = await api.geList(params);</span><br><span class="line">    <span class="keyword">if</span> (err === null) &#123;</span><br><span class="line">      const &#123;retcode, data, retmsg&#125; = rsp;</span><br><span class="line">      <span class="keyword">if</span> (retcode === 0) &#123;</span><br><span class="line">        commit(types.GET_LIST, data);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>mutations<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const mutations = &#123;</span><br><span class="line">  [types.SHOW_POPUP] (state, data) &#123;</span><br><span class="line">    <span class="built_in">let</span> option = Object.assign(&#123;&#125;, state.options, data);</span><br><span class="line">    state.options = option;</span><br><span class="line">  &#125;,</span><br><span class="line">  [types.GET_LIST] (state, data) &#123;</span><br><span class="line">    state.list = data.list;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>总得来说，vuex的数据流还是很容易理解的。对于大型应用，就可以使用module来分割各模块，各模块拥有自己的state\getters\actions\mutations。我们会希望把 Vuex 相关代码分割到模块中。下面是项目结构示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">├── index.html</span><br><span class="line">├── main.js</span><br><span class="line">├── api</span><br><span class="line">│   └── ... # 抽取出API请求</span><br><span class="line">├── components</span><br><span class="line">│   ├── App.vue</span><br><span class="line">│   └── ...</span><br><span class="line">└── store</span><br><span class="line">    ├── index.js          # 我们组装模块并导出 store 的地方</span><br><span class="line">    ├── actions.js        # 根级别的 action</span><br><span class="line">    ├── mutations.js      # 根级别的 mutation</span><br><span class="line">    └── modules</span><br><span class="line">        ├── cart.js       # 购物车模块</span><br><span class="line">        └── products.js   # 产品模块</span><br></pre></td></tr></table></figure>
+<h1 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h1><h2 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h2><p>相比来说，redux的数据流就要复杂一些了。View调用store.dispatch发起Action-&gt;store接受Action(action传入reducer函数,reducer函数返回一个新的state)-&gt;通知store.subscribe订阅的重新渲染函数<br><img src="https://upload-images.jianshu.io/upload_images/13075859-eaf113fc17a25dd1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="redux"><br>Redux 可以用这三个基本原则来描述：</p>
+<ol>
+<li>单一数据源</li>
+<li>State只读</li>
+<li>使用纯函数来执行修改</li>
+</ol>
+<p>也有几个相似的基本概念：</p>
+<ul>
+<li>Action<br>Action 是把数据从应用传到 store 的有效载荷。它是 store 数据的<strong>唯一</strong>来源。一般来说你会通过 <a href="http://www.redux.org.cn/docs/api/Store.html#dispatch" target="_blank" rel="noopener"><code>store.dispatch()</code></a> 将 action 传到 store。</li>
+<li>Reducer<br>Reducers 指定了应用状态的变化如何响应 <a href="http://www.redux.org.cn/docs/basics/Actions.html" target="_blank" rel="noopener">actions</a> 并发送到 store 的，记住 actions 只是描述了<em>有事情发生了</em>这一事实，并没有描述应用如何更新 state。谨记 reducer 一定要保持纯净。只要传入参数相同，返回计算得到的下一个 state 就一定相同。没有特殊情况、没有副作用，没有 API 请求、没有变量修改，单纯执行计算。</li>
+<li>Store<br>在前面的章节中，我们学会了使用 <a href="http://www.redux.org.cn/docs/basics/Actions.html" target="_blank" rel="noopener">action</a> 来描述“发生了什么”，和使用 <a href="http://www.redux.org.cn/docs/basics/Reducers.html" target="_blank" rel="noopener">reducers</a> 来根据 action 更新 state 的用法。Store 就是把它们联系到一起的对象。Store 有以下职责：<br>维持应用的 state；<br>提供 <a href="http://www.redux.org.cn/docs/api/Store.html#getState" target="_blank" rel="noopener"><code>getState()</code></a> 方法获取 state；<br>提供 <a href="http://www.redux.org.cn/docs/api/Store.html#dispatch" target="_blank" rel="noopener"><code>dispatch(action)</code></a> 方法更新 state；<br>通过 <a href="http://www.redux.org.cn/docs/api/Store.html#subscribe" target="_blank" rel="noopener"><code>subscribe(listener)</code></a> 注册监听器;<br>通过 <a href="http://www.redux.org.cn/docs/api/Store.html#subscribe" target="_blank" rel="noopener"><code>subscribe(listener)</code></a> 返回的函数注销监听器。</li>
+</ul>
+<p>这几个概念都比较容易理解，个人觉得比较难的点是如何将它们组合起来，如拆分reducers，使用 React Redux 库的 <code>connect()</code> 方法实现容器组件从 Redux state 树中读取部分数据，并通过 props 来把这些数据提供给要渲染的组件。</p>
+<h2 id="一个简单的例子-1"><a href="#一个简单的例子-1" class="headerlink" title="一个简单的例子"></a>一个简单的例子</h2><p>合并reducers<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import * as reducers from <span class="string">'./reducers'</span>;</span><br><span class="line">import * as reactRouter from <span class="string">'react-router'</span>;</span><br><span class="line">/* Combine Reducers */</span><br><span class="line">const reducer = combineReducers(&#123;</span><br><span class="line">  routing: routerReducer,</span><br><span class="line">  ...reducers,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>在reducers/index.js中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import &#123; hospitalReducer, userReducer &#125; from <span class="string">'./hospital'</span>;</span><br><span class="line">import &#123; homeReducer &#125; from <span class="string">'./home'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> &#123;</span><br><span class="line">  hospitalReducer,</span><br><span class="line">  homeReducer,</span><br><span class="line">  userReducer,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">/*  项目结构</span><br><span class="line">├── reducers</span><br><span class="line">   └── index.js</span><br><span class="line">   └── hospital.js</span><br><span class="line">   └── home.js</span><br><span class="line">*/</span><br></pre></td></tr></table></figure></p>
+<p>在reducers/hospital.js中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">const hospitalReducerInitialState = ((hospital) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (hospital.iconUrl.length) &#123;</span><br><span class="line">    <span class="built_in">return</span> &#123;</span><br><span class="line">      hospital,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="built_in">return</span> &#123;</span><br><span class="line">    hospital: &#123;</span><br><span class="line">      ...hospital,</span><br><span class="line">      iconUrl: <span class="string">'https://normal.png'</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)(window.hospital);</span><br><span class="line"></span><br><span class="line">const hospitalReducer = (state = hospitalReducerInitialState) =&gt; &#123;</span><br><span class="line">  <span class="built_in">return</span> state;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const userReducerInitialState = &#123;</span><br><span class="line">  user: window.user,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const userReducer = (state = userReducerInitialState) =&gt; &#123;</span><br><span class="line">  <span class="built_in">return</span> state ;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> &#123;</span><br><span class="line">  hospitalReducer,</span><br><span class="line">  userReducer,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后在组件中定义mapStateToProps就可以读取state中的数据了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const mapStateToProps = (state: any) =&gt; &#123;</span><br><span class="line">  <span class="built_in">return</span> &#123;</span><br><span class="line">    hospital: state.hospitalReducer.hospital,</span><br><span class="line">    user: state.hospitalReducer.user,</span><br><span class="line">    home: state.homeReducer.home,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>当然还有真正接受action的reducer：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> <span class="keyword">function</span> userCollectReducer(state = initialState, action) &#123;</span><br><span class="line">  switch (action.type) &#123;</span><br><span class="line">    <span class="keyword">case</span> FETCH_COLLECT_LIST_COMPLETED:</span><br><span class="line">      <span class="built_in">return</span> &#123;</span><br><span class="line">        ...state,</span><br><span class="line">        list: action.payload.list.filter((item) =&gt; &#123;</span><br><span class="line">          <span class="built_in">return</span> !!item.doctor_info;</span><br><span class="line">        &#125;),</span><br><span class="line">      &#125;;</span><br><span class="line">    <span class="keyword">case</span> FETCH_COLLECT_LIST_FAILED:</span><br><span class="line">      <span class="built_in">return</span> &#123;</span><br><span class="line">        ...state,</span><br><span class="line">      &#125;;</span><br><span class="line">    <span class="keyword">case</span> FETCH_COLLECT_ITEM:</span><br><span class="line">      <span class="built_in">return</span> &#123;</span><br><span class="line">        ...state,</span><br><span class="line">        collectItem: &#123;&#125;,</span><br><span class="line">      &#125;;</span><br><span class="line">    default:</span><br><span class="line">      <span class="built_in">return</span> state;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>接下来讲的Action就更复杂了。先考虑同步Action的情况：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> const setItem = (options) =&gt; &#123;</span><br><span class="line">  <span class="built_in">return</span> &#123;</span><br><span class="line">    <span class="built_in">type</span>: SET_ITEM,</span><br><span class="line">    payload: &#123;</span><br><span class="line">      data: &#123;</span><br><span class="line">        ...options,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>但是异步action就需要借助第三方库来实现了.<br>redux-thunk中间件可以让action创建函数先不返回一个action对象，而是返回一个函数，函数传递两个参数(dispatch,getState),在函数体内进行业务逻辑的封装，而且可以再次dispatch一个action<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const INCREMENT_COUNTER = <span class="string">'INCREMENT_COUNTER'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">increment</span></span>() &#123;</span><br><span class="line">  <span class="built_in">return</span> &#123;</span><br><span class="line">    <span class="built_in">type</span>: INCREMENT_COUNTER</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">incrementAsync</span></span>() &#123;</span><br><span class="line">  <span class="built_in">return</span> (dispatch, getState) =&gt; &#123;</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">      // Yay! Can invoke sync or async actions with `dispatch`</span><br><span class="line">      dispatch(increment());</span><br><span class="line">    &#125;, 1000);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://github.com/kpaxqin/redux-action-tools" target="_blank" rel="noopener">redux-action-tools</a>是另一种比较好的方案。XX_SUCCESS/XX_FAILED相关的代码都被封装了起来，不用为每个异步请求写3个Action<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const GET_DATA = <span class="string">'GET_DATA'</span>;</span><br><span class="line"></span><br><span class="line">//action creator</span><br><span class="line">const getData = createAsyncAction(GET_DATA, <span class="keyword">function</span>(id) &#123;</span><br><span class="line">    <span class="built_in">return</span> api.getData(id)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//reducer</span><br><span class="line">const reducer = createReducer()</span><br><span class="line">    .when(getData, (oldState, action) =&gt; oldState)</span><br><span class="line">    .<span class="keyword">done</span>((oldState, action) =&gt; successState)</span><br><span class="line">    .failed((oldState, action) =&gt; errorState)</span><br><span class="line">    .build()</span><br></pre></td></tr></table></figure></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><strong>Vuex数据流</strong>的顺序是:<br>View调用store.commit（通过actions）提交对应的请求到Store中对应的mutation函数-&gt;store改变(vue检测到数据变化自动渲染)</p>
+<p>而<strong>Redux数据流</strong>的顺序是:<br> View调用store.dispatch发起Action-&gt;store接受Action(action传入reducer函数,reducer函数返回一个新的state)-&gt;通知store.subscribe订阅的重新渲染函数</p>
+<p>Vuex是专门为Vue设计的状态管理框架,同样基于Flux架构，并吸收了Redux的优点<br>Vuex相对于Redux的不同点有:</p>
+<ul>
+<li>改进了Redux中的Action和Reducer函数，以mutations变化函数取代Reducer，</li>
+<li>无需switch,只需在对应的mutation函数里改变state值即可</li>
+</ul>
+<p>由于Vue自动重新渲染的特性，无需订阅重新渲染函数，只要生成新的State即可。store和state是最基本的概念，VUEX没有做出改变。其实VUEX对整个框架思想并没有任何改变，只是某些内容变化了名称或者叫法，通过改名，以图在一些细节概念上有所区分。</p>
+<ul>
+<li><strong>VUEX弱化了dispatch的存在感</strong>。VUEX认为状态变更的触发是一次“提交”而已，而调用方式则是框架提供一个提交的commit API接口。</li>
+<li><strong>VUEX也弱化了Redux中的reducer的概念</strong>。reducer在计算机领域语义应该是”规约”，在这里意思应该是根据旧的state和Action的传入参数，”规约”出新的state。在VUEX中，对应的是mutation，即”转变”，只是根据入参对旧state进行”转变”而已。</li>
+</ul>
+<p> 总的来说，VUEX通过弱化概念，在任何东西都没做实质性削减的基础上，使得整套框架更易于理解了。<br>另外VUEX支持getter，运行中是带缓存的，算是对提升性能方面做了些优化工作，言外之意也是鼓励大家多使用getter。<br>vuex已经整合好了状态管理的需要的大部分功能，例如异步，所以写着比较简单。redux是未简化版本的状态管理，保留核心的状态管理思想，可以自定义状态的多种处理方式，配合其他第三方库来一起使用。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/04/front/vue/" rel="next" title="Vue源码分析之数据绑定">
+                <i class="fa fa-chevron-left"></i> Vue源码分析之数据绑定
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Sherley</p>
+              <p class="site-description motion-element" itemprop="description">被卷进漩涡 也不低头</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vuex"><span class="nav-number">2.</span> <span class="nav-text">Vuex</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">2.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个简单的例子"><span class="nav-number">2.2.</span> <span class="nav-text">一个简单的例子</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redux"><span class="nav-number">3.</span> <span class="nav-text">Redux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念-1"><span class="nav-number">3.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个简单的例子-1"><span class="nav-number">3.2.</span> <span class="nav-text">一个简单的例子</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sherley</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
