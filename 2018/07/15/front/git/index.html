@@ -87,8 +87,8 @@
 <meta property="og:description" content="Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.runoob.com/wp-content/uploads/2015/02/1352126739_7909.jpg">
-<meta property="og:image" content="https://images2015.cnblogs.com/blog/805129/201608/805129-20160814141501031-263930921.png">
-<meta property="og:updated_time" content="2018-07-16T04:26:27.526Z">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1400/1*9yJY7fyscWFUVRqnx0BM6A.png">
+<meta property="og:updated_time" content="2018-08-24T08:38:38.244Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 使用">
 <meta name="twitter:description" content="Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。">
@@ -359,10 +359,10 @@
 <li>.gitignore 会忽略定义在其中的文件（夹）</li>
 <li>使用git config –global 设置账户和邮箱</li>
 </ul>
-<h2 id="git-flow-工作流"><a href="#git-flow-工作流" class="headerlink" title="git flow 工作流"></a>git flow 工作流</h2><p>Gitflow工作流程围绕项目发布定义了严格的分支模型。Gitflow流程并没有增加任何新的概念或命令。其特色在于，它为不同的分支分配了非常明确的角色，并且定义了使用场景和用法。<br><img src="https://images2015.cnblogs.com/blog/805129/201608/805129-20160814141501031-263930921.png" alt=""><br>主要分支：<br><strong>1. master分支</strong><br>主分支，产品的功能全部实现后，最终在master分支对外发布。</p>
+<h2 id="git-flow-工作流"><a href="#git-flow-工作流" class="headerlink" title="git flow 工作流"></a>git flow 工作流</h2><p>Gitflow工作流程围绕项目发布定义了严格的分支模型。Gitflow流程并没有增加任何新的概念或命令。其特色在于，它为不同的分支分配了非常明确的角色，并且定义了使用场景和用法。<br><img src="https://cdn-images-1.medium.com/max/1400/1*9yJY7fyscWFUVRqnx0BM6A.png" alt=""><br>主要分支：<br><strong>1. master分支</strong><br>主分支，产品的功能全部实现后，最终在master分支对外发布。</p>
 <p><strong>2. develop分支</strong><br>开发分支，基于master分支克隆，产品的编码工作在此分支进行。</p>
 <p><strong>3. release分支</strong><br>测试分支，基于delevop分支克隆，产品编码工作完成后，发布到本分支测试，测试过程中发现的小bug直接在本分支进行修复，修复完成后合并到develop分支。本分支属于临时分支，目的实现后可删除分支。</p>
-<p><strong>4. bugfix分支</strong><br>Bug修复分支，基于master分支或发布的里程碑Tag克隆，主要用于修复对外发布的分支，收到客户的Bug反馈后，在此分支进行修复，修复完毕后分别合并到develop分支和master分支。本分支属于临时分支，目的实现后可删除分支。</p>
+<p><strong>4. hotfix分支</strong><br>Bug修复分支，基于master分支或发布的里程碑Tag克隆，主要用于修复对外发布的分支，收到客户的Bug反馈后，在此分支进行修复，修复完毕后分别合并到develop分支和master分支。本分支属于临时分支，目的实现后可删除分支。</p>
 <p><strong>5. feature分支</strong><br>功能特征分支，基于develop分支克隆，主要用于多人协助开发场景或探索性功能验证场景，功能开发完毕后合并到develop分支。feature分支可创建多个，属于临时分支，目的实现后可删除分支</p>
 
       
