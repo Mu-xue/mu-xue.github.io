@@ -90,7 +90,7 @@
 <meta property="og:image" content="https://image-static.segmentfault.com/850/297/850297588-594143f7e39bf">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/599584-bb9829780f50c07e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/599584-b5e7e00de7c9213a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-08-28T12:49:15.255Z">
+<meta property="og:updated_time" content="2018-08-29T03:24:01.929Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解执行上下文、作用域链、闭包、this">
 <meta name="twitter:description" content="执行上下文被创建时，发生了什么？">
@@ -349,7 +349,7 @@
 <li>检查当前上下文中的<strong>变量</strong>声明，每找到一个变量声明，就在变量对象中以变量名建立一个属性，属性值为undefined。如果该变量名的属性已经存在，为了防止同名的函数被修改为undefined，则会直接<strong>跳过</strong>，原属性值不会被修改。</li>
 </ul>
 <p>在上面的规则中我们看出，function声明会比var声明优先级更高一点。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> fn(a)&#123;</span><br><span class="line">	console.log(a);</span><br><span class="line">	var a = 2;</span><br><span class="line">	<span class="keyword">function</span> <span class="function"><span class="title">a</span></span>()&#123;&#125;;</span><br><span class="line">	console.log(a);</span><br><span class="line">&#125;</span><br><span class="line">fn(1);</span><br></pre></td></tr></table></figure></p>
-<p>举个例子，函数fn执行时，创建新的执行上下文，在创建变量对象时，先建立arguments对象，此时建立了a，值为1。然后检查函数声明，发现存在，于是覆盖，此时a指向该函数。之后检查变量声明，找到后因为a已经存在，于是会跳过。当执行到var a = 2;时，a被赋值为2。最终输出的结果是：<br>>   _f_ a(){}<br>>  2</p>
+<p>举个例子，函数fn执行时，创建新的执行上下文，在创建变量对象时，先建立arguments对象，此时建立了a，值为1。然后检查函数声明，发现存在，于是覆盖，此时a指向该函数。之后检查变量声明，找到后因为a已经存在，于是会跳过。当执行到var a = 2;时，a被赋值为2。最终输出的结果是：<br>>   <em>f</em> a(){}<br>>  2</p>
 <p>未进入执行阶段之前，变量对象中的属性都不能访问。但是进入执行阶段之后，变量对象转变为了活动对象，里面的属性都能被访问了，然后开始进行执行阶段的操作。变量对象和活动对象其实都是同一个对象，只是处于执行上下文的不同生命周期。</p>
 <h1 id="执行上下文"><a href="#执行上下文" class="headerlink" title="执行上下文"></a>执行上下文</h1><p>每次当控制器转到可执行代码的时候，就会进入一个执行上下文。执行上下文可以理解为当前代码的执行环境，它会形成一个作用域。JavaScript中的运行环境大概包括三种情况。</p>
 <ul>
