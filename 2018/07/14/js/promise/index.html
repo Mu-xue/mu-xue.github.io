@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/alien.png?v=5.1.4">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="慕雪">
 <meta property="og:description" content="Promise的重要性应该不用多说，大家用的频率也很高，因此有必要深入了解一下。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-16T03:46:53.298Z">
+<meta property="og:updated_time" content="2018-07-16T03:46:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入Promise">
 <meta name="twitter:description" content="Promise的重要性应该不用多说，大家用的频率也很高，因此有必要深入了解一下。">
@@ -119,7 +119,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/14/js/promise/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/14/js/promise/">
 
 
 
@@ -153,8 +153,8 @@
     
 
     <div class="custom-logo-site-title">
-      <img src=/images/alien.png  width=40 class="header-icon"></img>
-      <a href="/"  class="brand" rel="start">
+      <img src="/images/alien.png" width="40" class="header-icon">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">慕雪</span>
         <span class="logo-line-after"><i></i></span>
@@ -184,7 +184,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -194,7 +194,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -204,7 +204,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -247,7 +247,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sherley">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -283,7 +283,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -332,11 +332,16 @@
       
 
       
-        <p><code>Promise</code>的重要性应该不用多说，大家用的频率也很高，因此有必要深入了解一下。<br><a id="more"></a></p>
+        <p><code>Promise</code>的重要性应该不用多说，大家用的频率也很高，因此有必要深入了解一下。</p>
+<a id="more"></a>
+
 <h2 id="Promise应运而生"><a href="#Promise应运而生" class="headerlink" title="Promise应运而生"></a>Promise应运而生</h2><p>在实际的使用当中，有非常多的应用场景我们不能立即知道应该如何继续往下执行。最重要也是最主要的一个场景就是ajax请求。通俗来说，由于网速的不同，可能你得到返回值的时间也是不同的，这个时候我们就需要等待，结果出来了之后才知道怎么样继续下去。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 简单的ajax原生实现</span><br><span class="line">var url = <span class="string">'http://someRequest'</span>;</span><br><span class="line">var result;</span><br><span class="line"></span><br><span class="line">var XHR = new XMLHttpRequest();</span><br><span class="line">XHR.open(<span class="string">'GET'</span>, url, <span class="literal">true</span>);</span><br><span class="line">XHR.send();</span><br><span class="line"></span><br><span class="line">XHR.onreadystatechange = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    <span class="keyword">if</span> (XHR.readyState == 4 &amp;&amp; XHR.status == 200) &#123;</span><br><span class="line">        result = XHR.response;</span><br><span class="line">        console.log(result);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>在ajax的原生实现中，利用了onreadystatechange事件，当该事件触发并且符合一定条件时，才能拿到我们想要的数据，之后我们才能开始处理数据。</p>
-<p>这样做看上去并没有什么麻烦，但是如果这个时候，我们还需要做另外一个ajax请求，这个新的ajax请求的其中一个参数，得从上一个ajax请求中获取，这个时候我们就不得不如下这样做：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">var url = <span class="string">'http://someRequest'</span>;</span><br><span class="line">var result;</span><br><span class="line"></span><br><span class="line">var XHR = new XMLHttpRequest();</span><br><span class="line">XHR.open(<span class="string">'GET'</span>, url, <span class="literal">true</span>);</span><br><span class="line">XHR.send();</span><br><span class="line"></span><br><span class="line">XHR.onreadystatechange = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    <span class="keyword">if</span> (XHR.readyState == 4 &amp;&amp; XHR.status == 200) &#123;</span><br><span class="line">        result = XHR.response;</span><br><span class="line">        console.log(result);</span><br><span class="line"></span><br><span class="line">        // 伪代码</span><br><span class="line">        var url2 = <span class="string">'http://someRequest?id='</span> + result.someParams;</span><br><span class="line">        var XHR2 = new XMLHttpRequest();</span><br><span class="line">        XHR2.open(<span class="string">'GET'</span>, url, <span class="literal">true</span>);</span><br><span class="line">        XHR2.send();</span><br><span class="line">        XHR2.onreadystatechange = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样做看上去并没有什么麻烦，但是如果这个时候，我们还需要做另外一个ajax请求，这个新的ajax请求的其中一个参数，得从上一个ajax请求中获取，这个时候我们就不得不如下这样做：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">var url = <span class="string">'http://someRequest'</span>;</span><br><span class="line">var result;</span><br><span class="line"></span><br><span class="line">var XHR = new XMLHttpRequest();</span><br><span class="line">XHR.open(<span class="string">'GET'</span>, url, <span class="literal">true</span>);</span><br><span class="line">XHR.send();</span><br><span class="line"></span><br><span class="line">XHR.onreadystatechange = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    <span class="keyword">if</span> (XHR.readyState == 4 &amp;&amp; XHR.status == 200) &#123;</span><br><span class="line">        result = XHR.response;</span><br><span class="line">        console.log(result);</span><br><span class="line"></span><br><span class="line">        // 伪代码</span><br><span class="line">        var url2 = <span class="string">'http://someRequest?id='</span> + result.someParams;</span><br><span class="line">        var XHR2 = new XMLHttpRequest();</span><br><span class="line">        XHR2.open(<span class="string">'GET'</span>, url, <span class="literal">true</span>);</span><br><span class="line">        XHR2.send();</span><br><span class="line">        XHR2.onreadystatechange = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>当出现第三个ajax(甚至更多)仍然依赖上一个请求的时候，我们的代码就变成了一场灾难。这场灾难，往往也被称为<strong>回调地狱</strong>。当然，除了回调地狱之外，还有一个非常重要的需求：为了我们的代码更加具有可读性和可维护性，我们需要将数据请求与数据处理明确的区分开来。</p>
 <p>因此我们需要一个叫做Promise的东西，来解决这个问题。</p>
 <h2 id="Promise基本概念"><a href="#Promise基本概念" class="headerlink" title="Promise基本概念"></a>Promise基本概念</h2><p>Promise对象有三种状态，他们分别是：</p>
@@ -347,21 +352,34 @@
 </ul>
 <p>这三种状态不受外界影响，而且状态只能从pending改变为resolved或者rejected，并且不可逆。在Promise对象的构造函数中，将一个函数作为第一个参数。而这个函数，就是用来处理Promise的状态变化。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">new Promise(<span class="keyword">function</span>(resolve, reject) &#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="literal">true</span>) &#123; resolve() &#125;;</span><br><span class="line">    <span class="keyword">if</span>(<span class="literal">false</span>) &#123; reject() &#125;;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
 <hr>
 <p>Promise对象中的then方法，可以接收构造函数中处理的状态变化，并分别对应执行。then方法有2个参数，第一个函数接收resolved状态的执行，第二个参数接收reject状态的执行。then方法返回的是一个新的Promise实例（注意，不是原来那个Promise实例）。因此可以采用链式写法，即then方法后面再调用另一个then方法,第一个then方法完成以后，会将返回结果作为参数，传入第二个then方法。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">promise(<span class="string">'aaa'</span>)</span><br><span class="line">.<span class="keyword">then</span>(<span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">  console.log(<span class="string">'成功1'</span>);</span><br><span class="line">  //……</span><br><span class="line">  <span class="built_in">return</span> promise(<span class="string">'bbb'</span>);</span><br><span class="line">&#125;)</span><br><span class="line">.<span class="keyword">then</span>(<span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">  console.log(<span class="string">'成功2'</span>);</span><br><span class="line">  //……</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
 <hr>
-<p>Promise.prototype.catch方法是.then(null, rejection)的别名，用于指定发生错误时的回调函数。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">promise(<span class="string">'aaa'</span>).<span class="keyword">then</span>(<span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">  // ...</span><br><span class="line">&#125;).catch(<span class="keyword">function</span>(error) &#123;</span><br><span class="line">  // 处理 promise 和 前一个回调函数运行时发生的错误</span><br><span class="line">  console.log(<span class="string">'发生错误！'</span>, error);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>Promise.prototype.catch方法是.then(null, rejection)的别名，用于指定发生错误时的回调函数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">promise(<span class="string">'aaa'</span>).<span class="keyword">then</span>(<span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">  // ...</span><br><span class="line">&#125;).catch(<span class="keyword">function</span>(error) &#123;</span><br><span class="line">  // 处理 promise 和 前一个回调函数运行时发生的错误</span><br><span class="line">  console.log(<span class="string">'发生错误！'</span>, error);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
 <p>注意，如果没有使用catch方法指定错误处理的回调函数，Promise 对象抛出的错误不会传递到外层代码，即不会有任何反应。Promise 内部的错误不会影响到 Promise 外部的代码，通俗的说法就是“Promise 会吃掉错误”。因此一般总是建议，Promise 对象后面要跟catch方法，这样可以处理 Promise 内部发生的错误。catch方法返回的还是一个 Promise 对象，因此后面还可以接着调用then方法。</p>
 <hr>
-<p>Promise.all方法用于将多个 Promise 实例，包装成一个新的 Promise 实例。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 生成一个Promise对象的数组</span><br><span class="line">const promises = [2, 3, 5, 7, 11, 13].map(<span class="keyword">function</span> (id) &#123;</span><br><span class="line">  <span class="built_in">return</span> promise(id);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Promise.all(promises).<span class="keyword">then</span>(<span class="keyword">function</span> (res) &#123;</span><br><span class="line">  // ...</span><br><span class="line">&#125;).catch(<span class="keyword">function</span>(reason)&#123;</span><br><span class="line">  // ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>Promise.all方法用于将多个 Promise 实例，包装成一个新的 Promise 实例。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 生成一个Promise对象的数组</span><br><span class="line">const promises = [2, 3, 5, 7, 11, 13].map(<span class="keyword">function</span> (id) &#123;</span><br><span class="line">  <span class="built_in">return</span> promise(id);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Promise.all(promises).<span class="keyword">then</span>(<span class="keyword">function</span> (res) &#123;</span><br><span class="line">  // ...</span><br><span class="line">&#125;).catch(<span class="keyword">function</span>(reason)&#123;</span><br><span class="line">  // ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
 <p>注意，如果作为参数的 Promise 实例，自己定义了catch方法，那么它一旦被rejected，并不会触发Promise.all()的catch方法。</p>
-<h2 id="对ajax进行封装"><a href="#对ajax进行封装" class="headerlink" title="对ajax进行封装"></a>对ajax进行封装</h2><p>OK，了解了这些基础知识之后，我们再回过头，利用Promise的知识，对最开始的ajax的例子进行一个简单的封装。看看会是什么样子。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">var url = <span class="string">'http://someRequest'</span>;</span><br><span class="line"></span><br><span class="line">// 封装一个get请求的方法</span><br><span class="line"><span class="keyword">function</span> getJSON(url) &#123;</span><br><span class="line">    <span class="built_in">return</span> new Promise(<span class="keyword">function</span>(resolve, reject) &#123;</span><br><span class="line">        var XHR = new XMLHttpRequest();</span><br><span class="line">        XHR.open(<span class="string">'GET'</span>, url, <span class="literal">true</span>);</span><br><span class="line">        XHR.send();</span><br><span class="line"></span><br><span class="line">        XHR.onreadystatechange = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">            <span class="keyword">if</span> (XHR.readyState == 4) &#123;</span><br><span class="line">                <span class="keyword">if</span> (XHR.status == 200) &#123;</span><br><span class="line">                    try &#123;</span><br><span class="line">                        var response = JSON.parse(XHR.responseText);</span><br><span class="line">                        resolve(response);</span><br><span class="line">                    &#125; catch (e) &#123;</span><br><span class="line">                        reject(e);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    reject(new Error(XHR.statusText));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getJSON(url).<span class="keyword">then</span>(resp =&gt; console.log(resp));</span><br></pre></td></tr></table></figure></p>
+<h2 id="对ajax进行封装"><a href="#对ajax进行封装" class="headerlink" title="对ajax进行封装"></a>对ajax进行封装</h2><p>OK，了解了这些基础知识之后，我们再回过头，利用Promise的知识，对最开始的ajax的例子进行一个简单的封装。看看会是什么样子。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">var url = <span class="string">'http://someRequest'</span>;</span><br><span class="line"></span><br><span class="line">// 封装一个get请求的方法</span><br><span class="line"><span class="keyword">function</span> getJSON(url) &#123;</span><br><span class="line">    <span class="built_in">return</span> new Promise(<span class="keyword">function</span>(resolve, reject) &#123;</span><br><span class="line">        var XHR = new XMLHttpRequest();</span><br><span class="line">        XHR.open(<span class="string">'GET'</span>, url, <span class="literal">true</span>);</span><br><span class="line">        XHR.send();</span><br><span class="line"></span><br><span class="line">        XHR.onreadystatechange = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">            <span class="keyword">if</span> (XHR.readyState == 4) &#123;</span><br><span class="line">                <span class="keyword">if</span> (XHR.status == 200) &#123;</span><br><span class="line">                    try &#123;</span><br><span class="line">                        var response = JSON.parse(XHR.responseText);</span><br><span class="line">                        resolve(response);</span><br><span class="line">                    &#125; catch (e) &#123;</span><br><span class="line">                        reject(e);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    reject(new Error(XHR.statusText));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getJSON(url).<span class="keyword">then</span>(resp =&gt; console.log(resp));</span><br></pre></td></tr></table></figure>
+
 <p>为了健壮性，处理了很多可能出现的异常，总之，就是正确的返回结果，就resolve一下，错误的返回结果，就reject一下。并且利用上面的参数传递的方式，将正确结果或者错误信息通过他们的参数传递出来。</p>
 <h2 id="实现一个简单的Promise"><a href="#实现一个简单的Promise" class="headerlink" title="实现一个简单的Promise"></a>实现一个简单的Promise</h2><p>看到这里，我们已经对Promise有了大概的认识，接着我们可以试着自己实现一个简易版的Promise，加深对它的理解。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Promise(fn) &#123;</span><br><span class="line">    var value = null,</span><br><span class="line">        callbacks = [];  //callbacks为数组，因为可能同时有很多个回调</span><br><span class="line"></span><br><span class="line">    this.then = <span class="keyword">function</span> (onFulfilled) &#123;</span><br><span class="line">        callbacks.push(onFulfilled);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> resolve(value) &#123;</span><br><span class="line">        callbacks.forEach(<span class="keyword">function</span> (callback) &#123;</span><br><span class="line">            callback(value);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fn(resolve);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>此时已经有基本的resolve和then了，再实现then的链式调用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">this.then = <span class="keyword">function</span> (onFulfilled) &#123;</span><br><span class="line">    callbacks.push(onFulfilled);</span><br><span class="line">    <span class="built_in">return</span> this;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>以上代码存在一个明显的问题：如果在then方法注册回调之前，resolve函数就执行了，那then的回调函数将不会执行，且Promise异步操作成功之后调用的then注册的回调也不会执行了。因此加入延时机制，还需要加入状态：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Promise(fn) &#123;</span><br><span class="line">    var state = <span class="string">'pending'</span>,</span><br><span class="line">        value = null,</span><br><span class="line">        callbacks = [];</span><br><span class="line"></span><br><span class="line">    this.then = <span class="keyword">function</span> (onFulfilled) &#123;</span><br><span class="line">        <span class="keyword">if</span> (state === <span class="string">'pending'</span>) &#123;</span><br><span class="line">            callbacks.push(onFulfilled);</span><br><span class="line">            <span class="built_in">return</span> this;</span><br><span class="line">        &#125;</span><br><span class="line">        onFulfilled(value); //如果是resolve后调用<span class="keyword">then</span>，那么立即执行回调函数</span><br><span class="line">        <span class="built_in">return</span> this;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> resolve(newValue) &#123;</span><br><span class="line">        value = newValue;</span><br><span class="line">        state = <span class="string">'fulfilled'</span>;</span><br><span class="line">        setTimeout(<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">            callbacks.forEach(<span class="keyword">function</span> (callback) &#123;</span><br><span class="line">                callback(value);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;, 0);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fn(resolve);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+<p>此时已经有基本的resolve和then了，再实现then的链式调用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">this.then = <span class="keyword">function</span> (onFulfilled) &#123;</span><br><span class="line">    callbacks.push(onFulfilled);</span><br><span class="line">    <span class="built_in">return</span> this;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>以上代码存在一个明显的问题：如果在then方法注册回调之前，resolve函数就执行了，那then的回调函数将不会执行，且Promise异步操作成功之后调用的then注册的回调也不会执行了。因此加入延时机制，还需要加入状态：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Promise(fn) &#123;</span><br><span class="line">    var state = <span class="string">'pending'</span>,</span><br><span class="line">        value = null,</span><br><span class="line">        callbacks = [];</span><br><span class="line"></span><br><span class="line">    this.then = <span class="keyword">function</span> (onFulfilled) &#123;</span><br><span class="line">        <span class="keyword">if</span> (state === <span class="string">'pending'</span>) &#123;</span><br><span class="line">            callbacks.push(onFulfilled);</span><br><span class="line">            <span class="built_in">return</span> this;</span><br><span class="line">        &#125;</span><br><span class="line">        onFulfilled(value); //如果是resolve后调用<span class="keyword">then</span>，那么立即执行回调函数</span><br><span class="line">        <span class="built_in">return</span> this;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> resolve(newValue) &#123;</span><br><span class="line">        value = newValue;</span><br><span class="line">        state = <span class="string">'fulfilled'</span>;</span><br><span class="line">        setTimeout(<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">            callbacks.forEach(<span class="keyword">function</span> (callback) &#123;</span><br><span class="line">                callback(value);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;, 0);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fn(resolve);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>我们暂时忽略了错误处理机制，为的使我们更关注于核心代码上面去</p>
 <p>相关阅读：<a href="https://github.com/then/promise/" target="_blank" rel="noopener">Promise源码</a></p>
 
@@ -477,7 +495,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -543,7 +561,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

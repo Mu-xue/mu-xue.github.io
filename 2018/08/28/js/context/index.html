@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/alien.png?v=5.1.4">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -90,7 +90,7 @@
 <meta property="og:image" content="https://image-static.segmentfault.com/850/297/850297588-594143f7e39bf">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/599584-bb9829780f50c07e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/599584-b5e7e00de7c9213a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-08-30T07:57:05.417Z">
+<meta property="og:updated_time" content="2018-08-30T07:57:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解执行上下文、作用域链、闭包、this">
 <meta name="twitter:description" content="执行上下文被创建时，发生了什么？">
@@ -124,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/28/js/context/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/28/js/context/">
 
 
 
@@ -158,8 +158,8 @@
     
 
     <div class="custom-logo-site-title">
-      <img src=/images/alien.png  width=40 class="header-icon"></img>
-      <a href="/"  class="brand" rel="start">
+      <img src="/images/alien.png" width="40" class="header-icon">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">慕雪</span>
         <span class="logo-line-after"><i></i></span>
@@ -189,7 +189,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -199,7 +199,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -209,7 +209,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -252,7 +252,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sherley">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -288,7 +288,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -337,10 +337,14 @@
       
 
       
-        <p>执行上下文被创建时，发生了什么？<br><a id="more"></a></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/599584-391af3aad043c028.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+        <p>执行上下文被创建时，发生了什么？</p>
+<a id="more"></a>
+
+<p><img src="http://upload-images.jianshu.io/upload_images/599584-391af3aad043c028.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
 <p>以上就是一个执行上下文的生命周期，相信你对其中的一些点也不陌生，下面就来深入的学习它们。</p>
-<h1 id="变量对象"><a href="#变量对象" class="headerlink" title="变量对象"></a>变量对象</h1><p>在创建执行上下文时，会创建一个叫做变量对象的特殊对象，JavaScript的基础数据类型的值往往都会保存在变量对象中。而引用类型因为大小不固定，所以引用数据类型的值是保存在堆内存中的对象。因此当我们要访问堆内存中的引用数据类型时，实际上我们首先是从变量对象中获取了该对象的地址引用（或者地址指针），然后再从堆内存中取得我们需要的数据。<br><img src="https://image-static.segmentfault.com/850/297/850297588-594143f7e39bf" alt=""><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var m = &#123; a: 10, b: 20 &#125;</span><br><span class="line">var n = m;</span><br><span class="line">n.a = 15;</span><br></pre></td></tr></table></figure></p>
+<h1 id="变量对象"><a href="#变量对象" class="headerlink" title="变量对象"></a>变量对象</h1><p>在创建执行上下文时，会创建一个叫做变量对象的特殊对象，JavaScript的基础数据类型的值往往都会保存在变量对象中。而引用类型因为大小不固定，所以引用数据类型的值是保存在堆内存中的对象。因此当我们要访问堆内存中的引用数据类型时，实际上我们首先是从变量对象中获取了该对象的地址引用（或者地址指针），然后再从堆内存中取得我们需要的数据。<br><img src="https://image-static.segmentfault.com/850/297/850297588-594143f7e39bf" alt></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var m = &#123; a: 10, b: 20 &#125;</span><br><span class="line">var n = m;</span><br><span class="line">n.a = 15;</span><br></pre></td></tr></table></figure>
+
 <p>上面这段代码，n = m 这一句仅仅只是把引用类型的地址指针复制过去，实际指向的还是同一个对象，因此m.a也会被改变。</p>
 <p>变量对象的创建，依次经历了以下几个过程：</p>
 <ul>
@@ -348,8 +352,10 @@
 <li>检查当前上下文的<strong>函数</strong>声明，也就是使用function关键字声明的函数。在变量对象中以函数名建立一个属性，属性值为指向该函数所在内存地址的引用。如果函数名的属性已经存在，那么该属性将会被新的引用所<strong>覆盖</strong>。</li>
 <li>检查当前上下文中的<strong>变量</strong>声明，每找到一个变量声明，就在变量对象中以变量名建立一个属性，属性值为undefined。如果该变量名的属性已经存在，为了防止同名的函数被修改为undefined，则会直接<strong>跳过</strong>，原属性值不会被修改。</li>
 </ul>
-<p>在上面的规则中我们看出，function声明会比var声明优先级更高一点。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> fn(a)&#123;</span><br><span class="line">	console.log(a);</span><br><span class="line">	var a = 2;</span><br><span class="line">	<span class="keyword">function</span> <span class="function"><span class="title">a</span></span>()&#123;&#125;;</span><br><span class="line">	console.log(a);</span><br><span class="line">&#125;</span><br><span class="line">fn(1);</span><br></pre></td></tr></table></figure></p>
-<p>举个例子，函数fn执行时，创建新的执行上下文，在创建变量对象时，先建立arguments对象，此时建立了a，值为1。然后检查函数声明，发现存在，于是覆盖，此时a指向该函数。之后检查变量声明，找到后因为a已经存在，于是会跳过。当执行到var a = 2;时，a被赋值为2。最终输出的结果是：<br>>   <em>f</em> a(){}<br>>  2</p>
+<p>在上面的规则中我们看出，function声明会比var声明优先级更高一点。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> fn(a)&#123;</span><br><span class="line">	console.log(a);</span><br><span class="line">	var a = 2;</span><br><span class="line">	<span class="keyword">function</span> <span class="function"><span class="title">a</span></span>()&#123;&#125;;</span><br><span class="line">	console.log(a);</span><br><span class="line">&#125;</span><br><span class="line">fn(1);</span><br></pre></td></tr></table></figure>
+
+<p>举个例子，函数fn执行时，创建新的执行上下文，在创建变量对象时，先建立arguments对象，此时建立了a，值为1。然后检查函数声明，发现存在，于是覆盖，此时a指向该函数。之后检查变量声明，找到后因为a已经存在，于是会跳过。当执行到var a = 2;时，a被赋值为2。最终输出的结果是：<br>&gt;   <em>f</em> a(){}<br>&gt;  2</p>
 <p>未进入执行阶段之前，变量对象中的属性都不能访问。但是进入执行阶段之后，变量对象转变为了活动对象，里面的属性都能被访问了，然后开始进行执行阶段的操作。变量对象和活动对象其实都是同一个对象，只是处于执行上下文的不同生命周期。</p>
 <h1 id="执行上下文"><a href="#执行上下文" class="headerlink" title="执行上下文"></a>执行上下文</h1><p>每次当控制器转到可执行代码的时候，就会进入一个执行上下文。执行上下文可以理解为当前代码的执行环境，它会形成一个作用域。JavaScript中的运行环境大概包括三种情况。</p>
 <ul>
@@ -358,22 +364,35 @@
 <li>eval（不建议使用，可忽略）</li>
 </ul>
 <p>因此在一个JavaScript程序中，必定会产生多个执行上下文，JavaScript引擎会以栈的方式来处理它们，这个栈，我们称其为函数调用栈(call stack)。栈底永远都是全局上下文，而栈顶就是当前正在执行的上下文。</p>
-<p>为了巩固一下执行上下文的理解，我们再来绘制一个例子的演变过程，这是一个简单的闭包例子。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</span><br><span class="line">    var n=999;</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">f2</span></span>()&#123;</span><br><span class="line">        alert(n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> f2;</span><br><span class="line">&#125;</span><br><span class="line">var result=f1();</span><br><span class="line">result(); // 999</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/599584-bb9829780f50c07e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>注意，只有函数执行时才会创建新的执行上下文。</p>
+<p>为了巩固一下执行上下文的理解，我们再来绘制一个例子的演变过程，这是一个简单的闭包例子。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</span><br><span class="line">    var n=999;</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">f2</span></span>()&#123;</span><br><span class="line">        alert(n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> f2;</span><br><span class="line">&#125;</span><br><span class="line">var result=f1();</span><br><span class="line">result(); // 999</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://upload-images.jianshu.io/upload_images/599584-bb9829780f50c07e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt><br>注意，只有函数执行时才会创建新的执行上下文。</p>
 <h1 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h1><p><strong>作用域</strong><br>在JavaScript中，我们可以将作用域定义为一套规则,这套规则用来管理引擎如何在当前作用域以及嵌套的子作用域中根据标识符名称进行变量查找。<br>JavaScript中只有全局作用域与函数作用域</p>
-<p><strong>作用域链</strong>，是由当前环境与上层环境的一系列变量对象组成，它保证了当前执行环境对符合访问权限的变量和函数的有序访问。上层环境指的是该函数<strong>定义</strong>（而不是执行）时所在的作用域。<br><img src="http://upload-images.jianshu.io/upload_images/599584-b5e7e00de7c9213a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>作用域链是由一系列变量对象组成，我们可以在这个单向通道中，查询变量对象中的标识符，这样就可以访问到上一层作用域中的变量了。</p>
+<p><strong>作用域链</strong>，是由当前环境与上层环境的一系列变量对象组成，它保证了当前执行环境对符合访问权限的变量和函数的有序访问。上层环境指的是该函数<strong>定义</strong>（而不是执行）时所在的作用域。<br><img src="http://upload-images.jianshu.io/upload_images/599584-b5e7e00de7c9213a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt><br>作用域链是由一系列变量对象组成，我们可以在这个单向通道中，查询变量对象中的标识符，这样就可以访问到上一层作用域中的变量了。</p>
 <h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><p>ES6 新增了let命令，用来声明变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。ES6中新增了块级作用域。 块作用域由 { } 包括，if语句和for语句里面的{ }也属于块作用域。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">let</span> i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">  a[i] = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    console.log(i);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line">a[6](); // 10</span><br></pre></td></tr></table></figure>
+
 <p>如果使用var，最后输出的是10。如果使用let，声明的变量仅在块级作用域内有效，最后输出的是 6。上面代码中，变量i是let声明的，当前的i只在本轮循环有效，所以每一次循环的i其实都是一个新的变量，所以最后输出的是6。你可能会问，如果每一轮循环的变量i都是重新声明的，那它怎么知道上一轮循环的值，从而计算出本轮循环的值？这是因为 JavaScript 引擎内部会记住上一轮循环的值，初始化本轮的变量i时，就在上一轮循环的基础上进行计算。</p>
-<p>另外，for循环还有一个特别之处，就是设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="built_in">let</span> i = 0; i &lt; 3; i++) &#123;</span><br><span class="line">  <span class="built_in">let</span> i = <span class="string">'abc'</span>;</span><br><span class="line">  console.log(i);</span><br><span class="line">&#125;</span><br><span class="line">// abc</span><br><span class="line">// abc</span><br><span class="line">// abc</span><br></pre></td></tr></table></figure></p>
+<p>另外，for循环还有一个特别之处，就是设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="built_in">let</span> i = 0; i &lt; 3; i++) &#123;</span><br><span class="line">  <span class="built_in">let</span> i = <span class="string">'abc'</span>;</span><br><span class="line">  console.log(i);</span><br><span class="line">&#125;</span><br><span class="line">// abc</span><br><span class="line">// abc</span><br><span class="line">// abc</span><br></pre></td></tr></table></figure>
+
 <p>上面代码正确运行，输出了 3 次abc。这表明函数内部的变量i与循环变量i不在同一个作用域，有各自单独的作用域。</p>
-<h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><p>闭包是一种特殊的对象。<br>它由两部分组成。执行上下文(代号A)，以及在该执行上下文中创建的函数（代号B）。<br>当B执行时，如果访问了A中变量对象中的值，那么闭包就会产生。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>() &#123;</span><br><span class="line">    var a = 20;</span><br><span class="line">    var b = 30;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">bar</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> a + b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> bar;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var bar = foo();</span><br><span class="line">bar();</span><br></pre></td></tr></table></figure></p>
+<h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><p>闭包是一种特殊的对象。<br>它由两部分组成。执行上下文(代号A)，以及在该执行上下文中创建的函数（代号B）。<br>当B执行时，如果访问了A中变量对象中的值，那么闭包就会产生。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>() &#123;</span><br><span class="line">    var a = 20;</span><br><span class="line">    var b = 30;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">bar</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> a + b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> bar;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var bar = foo();</span><br><span class="line">bar();</span><br></pre></td></tr></table></figure>
+
 <p>上面的例子，首先有执行上下文foo，在foo中定义了函数bar，而通过对外返回bar的方式让bar得以执行。当bar执行时，访问了foo内部的变量a，b。因此这个时候闭包产生。</p>
 <p>通过闭包，我们可以在其他的执行上下文中，访问到函数的内部变量。</p>
-<h1 id="this"><a href="#this" class="headerlink" title="this"></a>this</h1><p><strong>this的指向，是在函数被调用的时候确定的。在函数执行过程中，this一旦被确定，就不可更改了。</strong><br>用例子感受一下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var a = 20;</span><br><span class="line">var obj = &#123;</span><br><span class="line">    a: 10,</span><br><span class="line">    c: this.a + 20,</span><br><span class="line">    fn: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">        <span class="built_in">return</span> this.a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(obj.c);  //40</span><br><span class="line">console.log(obj.fn());    //10</span><br></pre></td></tr></table></figure></p>
+<h1 id="this"><a href="#this" class="headerlink" title="this"></a>this</h1><p><strong>this的指向，是在函数被调用的时候确定的。在函数执行过程中，this一旦被确定，就不可更改了。</strong><br>用例子感受一下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var a = 20;</span><br><span class="line">var obj = &#123;</span><br><span class="line">    a: 10,</span><br><span class="line">    c: this.a + 20,</span><br><span class="line">    fn: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">        <span class="built_in">return</span> this.a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(obj.c);  //40</span><br><span class="line">console.log(obj.fn());    //10</span><br></pre></td></tr></table></figure>
+
 <p>在一个函数上下文中，this由调用者提供，由调用函数的方式来决定。如果调用者函数，被某一个对象所拥有，那么该函数在调用时，内部的this指向该对象。如果函数独立调用，那么该函数内部的this，则指向undefined。但是在非严格模式中，当this指向undefined时，它会被自动指向全局对象。</p>
-<p>只要不是obj.func的方式，都不算被某对象所拥有，都是独立调用。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var a = 20;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">getA</span></span>() &#123;</span><br><span class="line">    <span class="built_in">return</span> this.a;</span><br><span class="line">&#125;</span><br><span class="line">var foo = &#123;</span><br><span class="line">    a: 10,</span><br><span class="line">    getA: getA</span><br><span class="line">&#125;</span><br><span class="line">console.log(foo.getA());  // 10</span><br></pre></td></tr></table></figure></p>
-<p>再来一个例子<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>() &#123;</span><br><span class="line">    console.log(this.a)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> active(fn) &#123;</span><br><span class="line">    fn(); // 真实调用者，为独立调用</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var a = 20;</span><br><span class="line">var obj = &#123;</span><br><span class="line">    a: 10,</span><br><span class="line">    getA: foo</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">active(obj.getA);// 20</span><br></pre></td></tr></table></figure></p>
+<p>只要不是obj.func的方式，都不算被某对象所拥有，都是独立调用。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var a = 20;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">getA</span></span>() &#123;</span><br><span class="line">    <span class="built_in">return</span> this.a;</span><br><span class="line">&#125;</span><br><span class="line">var foo = &#123;</span><br><span class="line">    a: 10,</span><br><span class="line">    getA: getA</span><br><span class="line">&#125;</span><br><span class="line">console.log(foo.getA());  // 10</span><br></pre></td></tr></table></figure>
+
+<p>再来一个例子</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>() &#123;</span><br><span class="line">    console.log(this.a)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> active(fn) &#123;</span><br><span class="line">    fn(); // 真实调用者，为独立调用</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var a = 20;</span><br><span class="line">var obj = &#123;</span><br><span class="line">    a: 10,</span><br><span class="line">    getA: foo</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">active(obj.getA);// 20</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -487,7 +506,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -553,7 +572,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

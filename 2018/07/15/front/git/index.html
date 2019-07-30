@@ -6,10 +6,10 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/alien.png?v=5.1.4">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -88,7 +88,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.runoob.com/wp-content/uploads/2015/02/1352126739_7909.jpg">
 <meta property="og:image" content="https://cdn-images-1.medium.com/max/1400/1*9yJY7fyscWFUVRqnx0BM6A.png">
-<meta property="og:updated_time" content="2018-08-24T08:38:38.244Z">
+<meta property="og:updated_time" content="2018-08-24T08:38:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 使用">
 <meta name="twitter:description" content="Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。">
@@ -122,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/15/front/git/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/15/front/git/">
 
 
 
@@ -156,8 +156,8 @@
     
 
     <div class="custom-logo-site-title">
-      <img src=/images/alien.png  width=40 class="header-icon"></img>
-      <a href="/"  class="brand" rel="start">
+      <img src="/images/alien.png" width="40" class="header-icon">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">慕雪</span>
         <span class="logo-line-after"><i></i></span>
@@ -187,7 +187,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -197,7 +197,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -207,7 +207,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -250,7 +250,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sherley">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -286,7 +286,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -335,12 +335,14 @@
       
 
       
-        <p>Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。<br><a id="more"></a></p>
+        <p>Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。</p>
+<a id="more"></a>
+
 <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>我们先来理解下Git 工作区、暂存区和版本库概念</p>
 <ul>
 <li>工作区：就是你在电脑里能看到的目录。</li>
 <li>暂存区：英文叫stage, 或index。一般存放在 “.git目录下” 下的index文件（.git/index）中，所以我们把暂存区有时也叫作索引（index）。</li>
-<li>版本库：工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。<br><img src="http://www.runoob.com/wp-content/uploads/2015/02/1352126739_7909.jpg" alt=""></li>
+<li>版本库：工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。<br><img src="http://www.runoob.com/wp-content/uploads/2015/02/1352126739_7909.jpg" alt></li>
 </ul>
 <p>基本操作：</p>
 <ol>
@@ -359,7 +361,7 @@
 <li>.gitignore 会忽略定义在其中的文件（夹）</li>
 <li>使用git config –global 设置账户和邮箱</li>
 </ul>
-<h2 id="git-flow-工作流"><a href="#git-flow-工作流" class="headerlink" title="git flow 工作流"></a>git flow 工作流</h2><p>Gitflow工作流程围绕项目发布定义了严格的分支模型。Gitflow流程并没有增加任何新的概念或命令。其特色在于，它为不同的分支分配了非常明确的角色，并且定义了使用场景和用法。<br><img src="https://cdn-images-1.medium.com/max/1400/1*9yJY7fyscWFUVRqnx0BM6A.png" alt=""><br>主要分支：<br><strong>1. master分支</strong><br>主分支，产品的功能全部实现后，最终在master分支对外发布。</p>
+<h2 id="git-flow-工作流"><a href="#git-flow-工作流" class="headerlink" title="git flow 工作流"></a>git flow 工作流</h2><p>Gitflow工作流程围绕项目发布定义了严格的分支模型。Gitflow流程并没有增加任何新的概念或命令。其特色在于，它为不同的分支分配了非常明确的角色，并且定义了使用场景和用法。<br><img src="https://cdn-images-1.medium.com/max/1400/1*9yJY7fyscWFUVRqnx0BM6A.png" alt><br>主要分支：<br><strong>1. master分支</strong><br>主分支，产品的功能全部实现后，最终在master分支对外发布。</p>
 <p><strong>2. develop分支</strong><br>开发分支，基于master分支克隆，产品的编码工作在此分支进行。</p>
 <p><strong>3. release分支</strong><br>测试分支，基于delevop分支克隆，产品编码工作完成后，发布到本分支测试，测试过程中发现的小bug直接在本分支进行修复，修复完成后合并到develop分支。本分支属于临时分支，目的实现后可删除分支。</p>
 <p><strong>4. hotfix分支</strong><br>Bug修复分支，基于master分支或发布的里程碑Tag克隆，主要用于修复对外发布的分支，收到客户的Bug反馈后，在此分支进行修复，修复完毕后分别合并到develop分支和master分支。本分支属于临时分支，目的实现后可删除分支。</p>
@@ -477,7 +479,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -543,7 +545,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
