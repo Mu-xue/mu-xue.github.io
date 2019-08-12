@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/alien.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/alien.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/alien.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/alien.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Mobx-react-lite —— Lightweight React bindings for MobX based on React 16.8 and Hooks">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初探mobx-react-lite">
+<meta property="og:url" content="http://yoursite.com/2019/08/11/front/mobx-react-lite/index.html">
+<meta property="og:site_name" content="慕雪">
+<meta property="og:description" content="Mobx-react-lite —— Lightweight React bindings for MobX based on React 16.8 and Hooks">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://cn.mobx.js.org/flow.png">
+<meta property="og:updated_time" content="2019-08-12T03:07:03.750Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初探mobx-react-lite">
+<meta name="twitter:description" content="Mobx-react-lite —— Lightweight React bindings for MobX based on React 16.8 and Hooks">
+<meta name="twitter:image" content="https://cn.mobx.js.org/flow.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/11/front/mobx-react-lite/">
+
+
+
+
+
+  <title>初探mobx-react-lite | 慕雪</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <img src="/images/alien.png" width="40" class="header-icon">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">慕雪</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">慕雪的前端博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/11/front/mobx-react-lite/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Muxue">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="慕雪">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">初探mobx-react-lite</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-11T15:34:14+08:00">
+                2019-08-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端杂记/" itemprop="url" rel="index">
+                    <span itemprop="name">前端杂记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Mobx-react-lite —— Lightweight React bindings for MobX based on React 16.8 and Hooks</p>
+<a id="more"></a>
+
+<p>最近项目开发使用到了mobx-react-lite这个轻量级的状态管理库，在使用的过程中碰到了不少的问题，这里做一个小小的总结。</p>
+<h2 id="mobx介绍"><a href="#mobx介绍" class="headerlink" title="mobx介绍"></a>mobx介绍</h2><p>Mobx是一个状态管理库，与Redux不同，它更加简单且可扩展性强，推崇任何源自应用状态的东西都应该自动地获得。它的核心原理是通过action触发state的变化，进而触发state的衍生对象（computed value &amp; Reactions)。<br><img src="https://cn.mobx.js.org/flow.png" alt="Mobx flow"><br>Mobx的几个核心概念：</p>
+<ul>
+<li>Observable state<br>可观察的状态，存放应用数据。默认情况下，observable 是递归应用的，所以如果状态的某个值是一个对象或数组，那么该值也会变成可观察的。</li>
+<li>Computed values<br>计算值，在相关state数据发生变化时自动更新的值。</li>
+<li>Reactions<br>Reactions 和计算值很像，但它不是产生一个新的值，而是会产生一些副作用，比如打印到控制台、网络请求、递增地更新 React 组件树以修补DOM、等等。</li>
+<li>Actions<br>动作是任何用来修改状态的东西。在严格模式下，必须通过action来更改状态时。</li>
+</ul>
+<h2 id="mobx-react-lite介绍"><a href="#mobx-react-lite介绍" class="headerlink" title="mobx-react-lite介绍"></a>mobx-react-lite介绍</h2><p>直至2018年底，React项目中统一使用mobx的方式都是mobx-react。然而随着react hooks的诞生，mobx-react-lite也出现了，它是专门服务于react hooks的mobx-react轻量级版本。虽然mobx-react@6已经包含了mobx-react-lite，但官方是推荐在没有类组件的react项目中直接使用mobx-react-litet的。</p>
+<h3 id="如何管理状态？"><a href="#如何管理状态？" class="headerlink" title="如何管理状态？"></a>如何管理状态？</h3><p>Mobx中的状态用observable object表示，而在mobx-react-hook中，有一个新的API用于创建可观察状态—— useLocalStore。这可以看作是一个自定义的react hook，它运行其初始化函数一次以创建可观察的store并在组件的生命周期内维护store。</p>
+<p>初始化函数返回对象的所有属性将自动可观察化，getter将转换为计算属性，方法将绑定到store并自动封装成<a href="https://mobx.js.org/refguide/action.html" target="_blank" rel="noopener">mobx transaction</a>。什么是transaction呢？我们知道，观察者(react组件)会监听Observable变量的改变从而触发视图渲染，如果action中改变了多个状态，那么是不是会触发多次渲染呢？为了避免这种情况，mobx提供了transaction功能，可以将对多个应用状态(Observable)的更新封装成一个事务，只有在事务执行完成后，才会触发一次对应的监听者(Reactions)，减少组件渲染次数。如果初始化函数返回的是类实例，那么也是同样的操作。</p>
+<p>在mobx中，状态是可以修改的，但一般推荐通过action来修改状态，便于跟踪状态变化，同时减少相关依赖的更新。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"><span class="keyword">import</span> &#123; useLocalStore, useObserver &#125; <span class="keyword">from</span> <span class="string">'mobx-react-lite'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> SmartTodo = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 注意不要使用解构赋值语法</span></span><br><span class="line">  <span class="keyword">const</span> todo = useLocalStore(<span class="function"><span class="params">()</span> =&gt;</span> (&#123;</span><br><span class="line">    <span class="comment">// state</span></span><br><span class="line">    title: <span class="string">'Click to toggle'</span>,</span><br><span class="line">    done: <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// action</span></span><br><span class="line">    toggle() &#123;</span><br><span class="line">      todo.done = !todo.done</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// getter</span></span><br><span class="line">    <span class="keyword">get</span> emoji() &#123;</span><br><span class="line">      <span class="keyword">return</span> todo.done ? <span class="string">'😜'</span> : <span class="string">'🏃'</span></span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;))</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> useObserver(<span class="function"><span class="params">()</span> =&gt;</span> (</span><br><span class="line">    &lt;h3 onClick=&#123;todo.toggle&#125;&gt;</span><br><span class="line">      &#123;todo.title&#125; &#123;todo.emoji&#125;</span><br><span class="line">    &lt;<span class="regexp">/h3&gt;</span></span><br><span class="line"><span class="regexp">  ))</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>useLocalStore源码:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">useLocalStore</span>&lt;<span class="title">TStore</span> <span class="title">extends</span> <span class="title">Record</span>&lt;<span class="title">string</span>, <span class="title">any</span>&gt;, <span class="title">TSource</span> <span class="title">extends</span> <span class="title">object</span> = <span class="title">any</span>&gt;(<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">    initializer: (source: TSource</span>) =&gt; <span class="title">TStore</span>,</span></span><br><span class="line"><span class="function">    <span class="title">current</span>?: <span class="title">TSource</span></span></span><br><span class="line"><span class="function">): <span class="title">TStore</span> </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> source = useAsObservableSourceInternal&lt;TSource | <span class="literal">undefined</span>&gt;(current, <span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> React.useState(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> local = observable(initializer(source <span class="keyword">as</span> TSource))</span><br><span class="line">        <span class="keyword">if</span> (isPlainObject(local)) &#123;</span><br><span class="line">            runInAction(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="built_in">Object</span>.keys(local).forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">                    <span class="keyword">const</span> value = local[key]</span><br><span class="line">                    <span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">"function"</span>) &#123;</span><br><span class="line">                        local[key] = wrapInTransaction(value, local)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> local</span><br><span class="line">    &#125;)[<span class="number">0</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">wrapInTransaction</span>(<span class="params">fn: Function, context: object</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function">(<span class="params">...args: unknown[]</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> transaction(<span class="function"><span class="params">()</span> =&gt;</span> fn.apply(context, args))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>从源码可以看出，useLocalStore的逻辑其实是比较简单的，它先是通过observable(initializer())将初始化函数返回的对象中的属性转换成可观察的，为计算属性创建代理。接着遍历对象中的方法，将其封装成事务，再使用useState返回处理后的store，而这个store是不可变的。</p>
+<h3 id="如何观察状态变更？"><a href="#如何观察状态变更？" class="headerlink" title="如何观察状态变更？"></a>如何观察状态变更？</h3><p>有三种方式可以让组件监听到状态变化：</p>
+<ul>
+<li>observer HOC</li>
+<li>observer component</li>
+<li>useObserver hook</li>
+</ul>
+<p>组件正确监听后，就会被通知组件有关更改的信息（只要状态可以被观察到），并且在父级不知道的情况下进行重新渲染。这种观察者模式正是mobx的一大特征。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; observable &#125; <span class="keyword">from</span> <span class="string">'mobx'</span></span><br><span class="line"><span class="keyword">import</span> &#123; Observer, useObserver, observer &#125; <span class="keyword">from</span> <span class="string">'mobx-react-lite'</span></span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> person = observable(&#123;</span><br><span class="line">  name: <span class="string">'John'</span>,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// observer HOC</span></span><br><span class="line"><span class="comment">// named function is optional (for debugging purposes)</span></span><br><span class="line"><span class="keyword">const</span> P1 = observer(<span class="function"><span class="keyword">function</span> <span class="title">P1</span>(<span class="params">&#123; person &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &lt;h1&gt;&#123;person.name&#125;&lt;/h1&gt;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// observer component</span></span><br><span class="line"><span class="keyword">const</span> P2 = <span class="function">(<span class="params">&#123; person &#125;</span>) =&gt;</span> &lt;Observer&gt;&#123;() =&gt; &lt;h1&gt;&#123;person.name&#125;&lt;/h1&gt;&#125;&lt;/Observer&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// useObserver hook</span></span><br><span class="line"><span class="keyword">const</span> P3 = <span class="function">(<span class="params">&#123; person &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> useObserver(<span class="function"><span class="params">()</span> =&gt;</span> &lt;h1&gt;&#123;person.name&#125;&lt;/h1&gt;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;P1 person=&#123;person&#125; /&gt;</span><br><span class="line">    &lt;P2 person=&#123;person&#125; /&gt;</span><br><span class="line">    &lt;P3 person=&#123;person&#125; /&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;,</span></span><br><span class="line"><span class="regexp">)</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">setTimeout(() =&gt; &#123;</span></span><br><span class="line"><span class="regexp">  person.name = 'Jane'</span></span><br><span class="line"><span class="regexp">&#125;, 1000)</span></span><br></pre></td></tr></table></figure>
+
+<p>这三个的区别是什么呢？</p>
+<ul>
+<li>observer HOC:<br><code>observer&lt;P&gt;(baseComponent: React.FC&lt;P&gt;, options?: IObserverOptions): React.FC&lt;P&gt;</code><br>使用了高阶组件的模式，并在内部封装了React.memo，将传入的函数组件转换为监听者。</li>
+<li>observer component<br><code>&lt;Observer&gt;{renderFn}&lt;/Observer&gt;</code><br>只跟踪函数中的渲染并在需要时自动渲染，更颗粒化地管控变化, 通常为了优化性能而使用。</li>
+<li>useObserver hook<br><code>useObserver&lt;T&gt;(fn: () =&gt; T, baseComponentName = &quot;observed&quot;, options?: IUseObserverOptions): T</code><br>使用这个钩子去包裹return的内容，它相对更加自由，可以让我们以多种方式优化组件(e.g. using memo with a custom areEqual, using forwardRef, etc.), 并准确声明观察的部分。<br>关于这一点的一个好处是，如果任何钩子由于某种原因改变了一个observable，那么该组件将不会不必要地重新渲染两次。</li>
+</ul>
+<h2 id="与React-Context协作"><a href="#与React-Context协作" class="headerlink" title="与React Context协作"></a>与React Context协作</h2><p>useLocalStore的虽然是从名称上看只创建组件本地的store，但是借助react context，就可以建立全局的store。</p>
+<p>先来设计store</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">createStore</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// note the use of this which refers to observable instance of the store</span></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    friends: [],</span><br><span class="line">    makeFriend(name, isFavorite = <span class="literal">false</span>, isSingle = <span class="literal">false</span>) &#123;</span><br><span class="line">      <span class="keyword">this</span>.friends.push(&#123; name, isFavorite, isSingle &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">get</span> singleFriends() &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.friends.filter(<span class="function"><span class="params">friend</span> =&gt;</span> friend.isSingle)</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后创建一个context，使用useLocalStore传入刚刚的函数创建本地的store，通过context将store挂载上去</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'./createStore'</span></span><br><span class="line"><span class="keyword">import</span> &#123; useLocalStore &#125; <span class="keyword">from</span> <span class="string">'mobx-react-lite'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> storeContext = React.createContext(<span class="literal">null</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> StoreProvider = <span class="function">(<span class="params">&#123; children &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> store = useLocalStore(createStore)</span><br><span class="line">  <span class="keyword">return</span> &lt;storeContext.Provider value=&#123;store&#125;&gt;&#123;children&#125;&lt;/storeContext.Provider&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> useStore = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> store = React.useContext(storeContext)</span><br><span class="line">  <span class="keyword">if</span> (!store) &#123;</span><br><span class="line">    <span class="comment">// this is especially useful in TypeScript so you don't need to be checking for null all the time</span></span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'You have forgot to use StoreProvider, shame on you.'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> store</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接着将StoreProvider作为父组件放在最外层，这样我们就可以在页面组件中获取store了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"><span class="keyword">import</span> &#123; useStore &#125; <span class="keyword">from</span> <span class="string">'../../../store'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> MatchMaker = observer(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> store = useStore()</span><br><span class="line">  <span class="keyword">const</span> singleAndFavoriteFriends = store.singleFriends.filter(</span><br><span class="line">    friend =&gt; friend.isFavorite,</span><br><span class="line">  )</span><br><span class="line">  <span class="keyword">return</span> &lt;div&gt;&#123;singleAndFavoriteFriends.map(renderFriend)&#125;&lt;/div&gt;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> FriendsMaker = observer(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> store = useStore()</span><br><span class="line">  <span class="keyword">const</span> onSubmit = React.useCallback(<span class="function">(<span class="params">&#123; name, favorite, single &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">    store.makeFriend(name, favorite, single)</span><br><span class="line">  &#125;, [])</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;Form onSubmit=&#123;onSubmit&#125;&gt;</span><br><span class="line">      Total friends: &#123;store.friends.length&#125;</span><br><span class="line">      &lt;input type=<span class="string">"text"</span> id=<span class="string">"name"</span> /&gt;</span><br><span class="line">      &lt;input type=<span class="string">"checkbox"</span> id=<span class="string">"favorite"</span> /&gt;</span><br><span class="line">      &lt;input type=<span class="string">"checkbox"</span> id=<span class="string">"single"</span> /&gt;</span><br><span class="line">    &lt;<span class="regexp">/Form&gt;</span></span><br><span class="line"><span class="regexp">  )</span></span><br><span class="line"><span class="regexp">&#125;)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="如何处理异步请求和副作用？"><a href="#如何处理异步请求和副作用？" class="headerlink" title="如何处理异步请求和副作用？"></a>如何处理异步请求和副作用？</h2><p>这也是我在项目中遇到的一个问题。首先，mobx与redux不同，它的异步请求是可以写在action里面的，因此在实际项目中，就产生了两种写法：</p>
+<ol>
+<li><p>将请求写在action中。这样写的好处是在组件中的逻辑更加清晰，只需直接调用action执行即可。但是无法根据请求状态返回loading给组件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">getTitle() &#123;</span><br><span class="line">  <span class="keyword">this</span>.pendingRequestCount++;</span><br><span class="line">  fetch(url).then(action(<span class="function"><span class="params">resp</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.title = resp.title;</span><br><span class="line">    <span class="keyword">this</span>.pendingRequestCount--;</span><br><span class="line">  &#125;))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将请求写在组件中，在action中只做修改状态的事情。这样写的好处是可以直接在组件内部做异步请求，更方便地管理请求进度并处理结果。缺点是组件内部请求逻辑变重，没有在store中统一维护请求，会因此增加一些额外的代码来维护该请求。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">useEffect(</span><br><span class="line">  () =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (!store.finishFetch) &#123;</span><br><span class="line">      fetch(url).then(action(<span class="function"><span class="params">resp</span> =&gt;</span> &#123;</span><br><span class="line">        store.getTitle(resp.title)</span><br><span class="line">      &#125;))</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  [store]</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>目前采用的是第二种写法，是否有更好的方法来优化呢？</p>
+<p>在项目中，我们经常会用到useEffect去处理一次副作用（如首次进入页面做异步请求），如果其中依赖到了observable value那怎么办呢？这里也是有2种写法：</p>
+<ol>
+<li><p>借助autorun。这是官方推荐的写法，这里注意永远不需要指定useEffect的依赖项，因为我们只希望运行一次且运行结果不依赖于store，但这样写会引起eslint报warning，所以需要让eslint去ignore这个警告。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"><span class="keyword">import</span> &#123; autorun &#125; <span class="keyword">from</span> <span class="string">'mobx'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">useDocumentTitle</span>(<span class="params">store: TStore</span>) </span>&#123;</span><br><span class="line">  React.useEffect(</span><br><span class="line">    () =&gt;</span><br><span class="line">      autorun(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">document</span>.title = <span class="string">`<span class="subst">$&#123;store.title&#125;</span> - <span class="subst">$&#123;store.sectionName&#125;</span>`</span></span><br><span class="line">      &#125;),</span><br><span class="line">    <span class="comment">// eslint-disable-next-line </span></span><br><span class="line">    [], <span class="comment">// note empty dependencies</span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>直接在useEffect中编写副作用。但是这样组件重新渲染可能会执行多次副作用，需要额外的代码去控制。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">useEffect(</span><br><span class="line">    () =&gt; &#123;</span><br><span class="line">      setLoading(<span class="literal">true</span>)</span><br><span class="line">      requestTeamList().then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">        store.setList(res.teams)</span><br><span class="line">        setLoading(<span class="literal">false</span>)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    [store]</span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>mobx-react-lite目前还是比较新的一个库，需要更多的探索。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/30/front/react_hooks/" rel="next" title="React 16.8 的新特性 —— React Hooks">
+                <i class="fa fa-chevron-left"></i> React 16.8 的新特性 —— React Hooks
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Muxue</p>
+              <p class="site-description motion-element" itemprop="description">被卷进漩涡 也不低头</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mobx介绍"><span class="nav-number">1.</span> <span class="nav-text">mobx介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mobx-react-lite介绍"><span class="nav-number">2.</span> <span class="nav-text">mobx-react-lite介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何管理状态？"><span class="nav-number">2.1.</span> <span class="nav-text">如何管理状态？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何观察状态变更？"><span class="nav-number">2.2.</span> <span class="nav-text">如何观察状态变更？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与React-Context协作"><span class="nav-number">3.</span> <span class="nav-text">与React Context协作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何处理异步请求和副作用？"><span class="nav-number">4.</span> <span class="nav-text">如何处理异步请求和副作用？</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Muxue</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
