@@ -87,7 +87,7 @@
 <meta property="og:description" content="Mobx-react-lite —— Lightweight React bindings for MobX based on React 16.8 and Hooks">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://cn.mobx.js.org/flow.png">
-<meta property="og:updated_time" content="2019-08-12T03:07:03.750Z">
+<meta property="og:updated_time" content="2019-08-12T03:21:59.883Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初探mobx-react-lite">
 <meta name="twitter:description" content="Mobx-react-lite —— Lightweight React bindings for MobX based on React 16.8 and Hooks">
@@ -343,7 +343,7 @@
 <li>Observable state<br>可观察的状态，存放应用数据。默认情况下，observable 是递归应用的，所以如果状态的某个值是一个对象或数组，那么该值也会变成可观察的。</li>
 <li>Computed values<br>计算值，在相关state数据发生变化时自动更新的值。</li>
 <li>Reactions<br>Reactions 和计算值很像，但它不是产生一个新的值，而是会产生一些副作用，比如打印到控制台、网络请求、递增地更新 React 组件树以修补DOM、等等。</li>
-<li>Actions<br>动作是任何用来修改状态的东西。在严格模式下，必须通过action来更改状态时。</li>
+<li>Actions<br>动作是任何用来修改状态的东西。在严格模式下，必须通过action来更改状态。</li>
 </ul>
 <h2 id="mobx-react-lite介绍"><a href="#mobx-react-lite介绍" class="headerlink" title="mobx-react-lite介绍"></a>mobx-react-lite介绍</h2><p>直至2018年底，React项目中统一使用mobx的方式都是mobx-react。然而随着react hooks的诞生，mobx-react-lite也出现了，它是专门服务于react hooks的mobx-react轻量级版本。虽然mobx-react@6已经包含了mobx-react-lite，但官方是推荐在没有类组件的react项目中直接使用mobx-react-litet的。</p>
 <h3 id="如何管理状态？"><a href="#如何管理状态？" class="headerlink" title="如何管理状态？"></a>如何管理状态？</h3><p>Mobx中的状态用observable object表示，而在mobx-react-hook中，有一个新的API用于创建可观察状态—— useLocalStore。这可以看作是一个自定义的react hook，它运行其初始化函数一次以创建可观察的store并在组件的生命周期内维护store。</p>
