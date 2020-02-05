@@ -79,20 +79,19 @@
 
 
 
-<meta name="description" content="Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。">
+<meta name="description" content="利用pdf.js实现h5预览pdf的功能">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git 使用">
-<meta property="og:url" content="http://yoursite.com/2018/07/15/front/git/index.html">
+<meta property="og:title" content="移动端h5预览PDF文件">
+<meta property="og:url" content="http://yoursite.com/2020/02/05/front/pdfjs/index.html">
 <meta property="og:site_name" content="慕雪">
-<meta property="og:description" content="Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。">
+<meta property="og:description" content="利用pdf.js实现h5预览pdf的功能">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.runoob.com/wp-content/uploads/2015/02/1352126739_7909.jpg">
-<meta property="og:image" content="https://cdn-images-1.medium.com/max/1400/1*9yJY7fyscWFUVRqnx0BM6A.png">
-<meta property="og:updated_time" content="2018-08-24T08:38:40.000Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13075859-09023a05e8e5c1d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640">
+<meta property="og:updated_time" content="2020-02-05T10:51:36.508Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git 使用">
-<meta name="twitter:description" content="Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。">
-<meta name="twitter:image" content="http://www.runoob.com/wp-content/uploads/2015/02/1352126739_7909.jpg">
+<meta name="twitter:title" content="移动端h5预览PDF文件">
+<meta name="twitter:description" content="利用pdf.js实现h5预览pdf的功能">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/13075859-09023a05e8e5c1d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640">
 
 
 
@@ -122,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/15/front/git/">
+  <link rel="canonical" href="http://yoursite.com/2020/02/05/front/pdfjs/">
 
 
 
 
 
-  <title>Git 使用 | 慕雪</title>
+  <title>移动端h5预览PDF文件 | 慕雪</title>
   
 
 
@@ -246,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/15/front/git/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/05/front/pdfjs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Muxue">
@@ -263,7 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git 使用</h1>
+          <h1 class="post-title" itemprop="name headline">移动端h5预览PDF文件</h1>
         
 
         <div class="post-meta">
@@ -275,8 +274,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-15T15:34:14+08:00">
-                2018-07-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-05T15:34:20+08:00">
+                2020-02-05
               </time>
             
 
@@ -335,37 +334,15 @@
       
 
       
-        <p>Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。</p>
+        <p>利用pdf.js实现h5预览pdf的功能</p>
 <a id="more"></a>
 
-<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>我们先来理解下Git 工作区、暂存区和版本库概念</p>
-<ul>
-<li>工作区：就是你在电脑里能看到的目录。</li>
-<li>暂存区：英文叫stage, 或index。一般存放在 “.git目录下” 下的index文件（.git/index）中，所以我们把暂存区有时也叫作索引（index）。</li>
-<li>版本库：工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。<br><img src="http://www.runoob.com/wp-content/uploads/2015/02/1352126739_7909.jpg" alt></li>
-</ul>
-<p>基本操作：</p>
-<ol>
-<li><code>git init</code> 创建新的git 仓库</li>
-<li><code>git clone</code> 使用 git clone 拷贝一个 Git 仓库到本地</li>
-<li><code>git add</code> 添加改动到暂存区</li>
-<li><code>git status</code> 查看本地状态</li>
-<li><code>git commit</code> 提交改动到本地仓库</li>
-<li><code>git log</code> 查看记录</li>
-<li><code>git push</code> 推送至远程仓库</li>
-<li><code>git fetch</code> 获取远程代码</li>
-<li><code>git pull</code> 获取并合并远程代码</li>
-</ol>
-<p>tips：</p>
-<ul>
-<li>.gitignore 会忽略定义在其中的文件（夹）</li>
-<li>使用git config –global 设置账户和邮箱</li>
-</ul>
-<h2 id="git-flow-工作流"><a href="#git-flow-工作流" class="headerlink" title="git flow 工作流"></a>git flow 工作流</h2><p>Gitflow工作流程围绕项目发布定义了严格的分支模型。Gitflow流程并没有增加任何新的概念或命令。其特色在于，它为不同的分支分配了非常明确的角色，并且定义了使用场景和用法。<br><img src="https://cdn-images-1.medium.com/max/1400/1*9yJY7fyscWFUVRqnx0BM6A.png" alt><br>主要分支：<br><strong>1. master分支</strong><br>主分支，产品的功能全部实现后，最终在master分支对外发布。</p>
-<p><strong>2. develop分支</strong><br>开发分支，基于master分支克隆，产品的编码工作在此分支进行。</p>
-<p><strong>3. release分支</strong><br>测试分支，基于delevop分支克隆，产品编码工作完成后，发布到本分支测试，测试过程中发现的小bug直接在本分支进行修复，修复完成后合并到develop分支。本分支属于临时分支，目的实现后可删除分支。</p>
-<p><strong>4. hotfix分支</strong><br>Bug修复分支，基于master分支或发布的里程碑Tag克隆，主要用于修复对外发布的分支，收到客户的Bug反馈后，在此分支进行修复，修复完毕后分别合并到develop分支和master分支。本分支属于临时分支，目的实现后可删除分支。</p>
-<p><strong>5. feature分支</strong><br>功能特征分支，基于develop分支克隆，主要用于多人协助开发场景或探索性功能验证场景，功能开发完毕后合并到develop分支。feature分支可创建多个，属于临时分支，目的实现后可删除分支</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在iOS上，直接打开PDF的url便可以直接预览，但是在安卓上，WebView不支持PDF解析，因此会通过连接Google的一个服务器转换成功后返回给WebView显示，也就是会跳转到另一个url去(<a href="http://docs.google.com/gview?embedded=true&amp;url=PDF_URL" target="_blank" rel="noopener">http://docs.google.com/gview?embedded=true&amp;url=PDF_URL</a>)<br>那么被墙了或者是这个pdf是私密需鉴权的话，就完全不可用了，因此需要借助第三方库来实现这个功能。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>pdf.js拥有29.4k的star数，是一个不错的选择，以react项目为例，先安装相关依赖：<br><code>npm install pdfjs-dist --save</code><br>如果有用到typescript的话还需要安装<br><code>npm install @types/pdfjs-dist --save-dev</code></p>
+<p>接着就可以开发相关页面了</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useEffect &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'./index.less'</span></span><br><span class="line"><span class="keyword">import</span> &#123; getDocument &#125; <span class="keyword">from</span> <span class="string">'pdfjs-dist'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建canvas</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPage</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> div = <span class="built_in">document</span>.createElement(<span class="string">"canvas"</span>);</span><br><span class="line">  <span class="keyword">const</span> container = <span class="built_in">document</span>.getElementById(<span class="string">'pdf-container'</span>)</span><br><span class="line">  container &amp;&amp; container.appendChild(div);</span><br><span class="line">  <span class="keyword">return</span> div;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// canvas渲染</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">renderPage</span>(<span class="params">pdfDoc: any, num: any</span>) </span>&#123;</span><br><span class="line">  pdfDoc.getPage(num).then(<span class="function"><span class="keyword">function</span> (<span class="params">page: any</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> viewport = page.getViewport(&#123;<span class="attr">scale</span>:<span class="number">2.0</span>&#125;);</span><br><span class="line">    <span class="keyword">var</span> canvas = createPage();</span><br><span class="line">    <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">'2d'</span>);</span><br><span class="line"></span><br><span class="line">    canvas.height = viewport.height;</span><br><span class="line">    canvas.width = viewport.width;</span><br><span class="line"></span><br><span class="line">    page.render(&#123;</span><br><span class="line">      canvasContext: ctx,</span><br><span class="line">      viewport: viewport</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> PDFViewer = <span class="function">(<span class="params">props: any</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 可以通过props传入url</span></span><br><span class="line">  <span class="keyword">const</span> &#123; pdf_url &#125; = props</span><br><span class="line"></span><br><span class="line">  useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (pdf_url) &#123;</span><br><span class="line">      <span class="built_in">window</span>.bridge.showFullLoading()</span><br><span class="line">      getDocument(pdf_url).promise</span><br><span class="line">        .then(<span class="function"><span class="keyword">function</span> (<span class="params">pdf</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt;= pdf.numPages; i++) &#123;</span><br><span class="line">            renderPage(pdf,i)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        .finally(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">window</span>.bridge.hideFullLoading()</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, [pdf_url])</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div id=<span class="string">"pdf-container"</span>/&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> PDFViewer</span><br></pre></td></tr></table></figure>
+
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><img src="https://upload-images.jianshu.io/upload_images/13075859-09023a05e8e5c1d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640" alt="image.png"></p>
 
       
     </div>
@@ -390,8 +367,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/14/js/promise/" rel="next" title="深入Promise">
-                <i class="fa fa-chevron-left"></i> 深入Promise
+              <a href="/2019/08/11/front/mobx-react-lite/" rel="next" title="初探mobx-react-lite">
+                <i class="fa fa-chevron-left"></i> 初探mobx-react-lite
               </a>
             
           </div>
@@ -399,10 +376,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/17/js/event_loop/" rel="prev" title="Event Loop（事件循环）">
-                Event Loop（事件循环） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -525,7 +498,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-flow-工作流"><span class="nav-number">2.</span> <span class="nav-text">git flow 工作流</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效果"><span class="nav-number">3.</span> <span class="nav-text">效果</span></a></li></ol></div>
             
 
           </div>
